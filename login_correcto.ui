@@ -74,7 +74,7 @@ background-color: rgb(217, 167, 74);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/logo/logo2.png);</string>
+     <string notr="true">image: url(:/img/logo2.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -120,7 +120,7 @@ font: 700 20pt &quot;Segoe UI&quot;;</string>
   </widget>
  </widget>
  <resources>
-  <include location="Imágenes/uvirtual.qrc"/>
+  <include location="img/imagen.qrc"/>
  </resources>
  <connections/>
 </ui>

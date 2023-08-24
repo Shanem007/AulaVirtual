@@ -90,9 +90,9 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
   </widget>
  </widget>
  <resources>
-  <include location="Imágenes/uvirtual.qrc"/>
   <include location="img/imagen.qrc"/>
-  <include location="img/imagenes.qrc"/>
+  <include location="img/imagen.qrc"/>
+  <include location="img/imagen.qrc"/>
  </resources>
  <connections/>
 </ui>
