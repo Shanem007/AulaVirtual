@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>262</width>
-    <height>30</height>
+    <width>636</width>
+    <height>495</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -90,7 +90,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="botonIngresar_IS">
     <property name="geometry">
      <rect>
       <x>70</x>
@@ -107,7 +107,7 @@ background-color: rgb(217, 167, 74);</string>
      <string>Ingresar</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="botonCancelar_IS">
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -193,7 +193,7 @@ color: rgb(242, 144, 87);</string>
   </widget>
  </widget>
  <resources>
-  <include location="Imágenes/uvirtual.qrc"/>
+  <include location="img/imagen.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -4,14 +4,29 @@ from PyQt6 import QtWidgets, uic
 app = QtWidgets.QApplication([])
 
 # Cargar el archivo .ui
-inicio = uic.loadUi("inicio.ui")
+principal = uic.loadUi("principal.ui")
 login = uic.loadUi("login.ui")
-login_correcto = uic.loadUi("login_correcto.ui")
-login_incorrecto = uic.loadUi("login_incorrecto.ui")
+
+def gui_login():
+    login.show()
+
+def gui_login_correcto():
+    login.show()
+
+#def gui_login_incorrecto():
+ #   login.show()
+
+
+#botones
+principal.botonInicioSesion.clicked.connect(gui_login)
+login.botonIngresar_IS.clicked.connect(gui_login_correcto)
+#login.botonIngresar_IS.clicked.connect(gui_login_correcto)
+
 
 #ejecutable
-inicio.show()
+principal.show()
 app.exec()
+
 
 
 

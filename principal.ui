@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>863</width>
-    <height>554</height>
+    <width>1281</width>
+    <height>599</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -59,7 +59,7 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="botonInicioSesion">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(217, 167, 74);
 font: 700 12pt &quot;Segoe UI&quot;;</string>
@@ -74,14 +74,14 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>80</y>
-      <width>831</width>
-      <height>491</height>
+      <x>0</x>
+      <y>70</y>
+      <width>841</width>
+      <height>471</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/logo/Logo.png);</string>
+     <string notr="true">border-image: url(:/img/Logo.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -91,6 +91,8 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
  </widget>
  <resources>
   <include location="Imágenes/uvirtual.qrc"/>
+  <include location="img/imagen.qrc"/>
+  <include location="img/imagenes.qrc"/>
  </resources>
  <connections/>
 </ui>
