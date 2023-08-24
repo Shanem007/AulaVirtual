@@ -70,7 +70,7 @@
      </property>
     </item>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="usuario_IS">
     <property name="geometry">
      <rect>
       <x>190</x>
@@ -80,7 +80,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_2">
+   <widget class="QTextEdit" name="clave_IS">
     <property name="geometry">
      <rect>
       <x>190</x>
@@ -185,6 +185,22 @@ color: rgb(242, 144, 87);</string>
     </property>
     <property name="styleSheet">
      <string notr="true">image: url(:/logo/logo2.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>80</y>
+      <width>131</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/img/logo2.png);</string>
     </property>
     <property name="text">
      <string/>
