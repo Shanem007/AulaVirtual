@@ -1,6 +1,7 @@
 # Librerías
-from PyQt6 import QtWidgets, uic
+from PyQt6 import QtWidgets, uic 
 import sqlite3
+
 
 #inicar la aplicación
 app = QtWidgets.QApplication([])
@@ -10,6 +11,7 @@ principal = uic.loadUi("principal.ui")
 login = uic.loadUi("login.ui")
 login_correcto = uic.loadUi("login_correcto.ui")
 login_error = uic.loadUi("login_error.ui")
+registro = uic.loadUi("registro.ui")
 
 def gui_login():
     login.show()
@@ -42,11 +44,21 @@ def gui_login_error():
     login.hide()
     login_error.show()
 
+def gui_registro():
+    login.hide()
+    registro.show()
+
+def gui_principal():
+    principal.show
+
+
 
 #botones
 principal.botonInicioSesion.clicked.connect(gui_login)
 login.botonIngresar_IS.clicked.connect(validacion_login)
-
+login_error.botonRegresar.clicked.connect(gui_login)
+principal.botonRegistro.clicked.connect(gui_registro)
+registro.botonRegresar.clicked.connect(gui_principal)
 
 
 #ejecutable

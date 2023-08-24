@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Registro</class>
- <widget class="QWidget" name="Registro">
+ <class>InicioS</class>
+ <widget class="QWidget" name="InicioS">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>602</width>
-    <height>479</height>
+    <width>853</width>
+    <height>595</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QFrame" name="frame">
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(96, 137, 191);</string>
+  </property>
+  <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>10</y>
-     <width>561</width>
-     <height>431</height>
+     <y>30</y>
+     <width>49</width>
+     <height>16</height>
     </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame_4">
+   <property name="geometry">
+    <rect>
+     <x>80</x>
+     <y>20</y>
+     <width>701</width>
+     <height>561</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
    <property name="frameShape">
     <enum>QFrame::StyledPanel</enum>
@@ -28,27 +47,65 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QLabel" name="label">
+   <widget class="QFrame" name="frame_2">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>0</y>
-      <width>71</width>
+      <x>200</x>
+      <y>10</y>
+      <width>271</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(242, 144, 87);</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>10</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 700 14pt &quot;Segoe UI&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Registro</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>100</y>
+      <width>181</width>
       <height>41</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Registro</string>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 170, 127);</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>60</y>
+      <x>30</x>
+      <y>110</y>
       <width>49</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
      <string>Nombre:</string>
@@ -57,149 +114,177 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>60</y>
+      <x>330</x>
+      <y>110</y>
       <width>49</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
      <string>Apellido:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>140</y>
+      <x>30</x>
+      <y>280</y>
       <width>111</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
      <string>Correo Institucional:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
-    <property name="geometry">
-     <rect>
-      <x>50</x>
-      <y>250</y>
-      <width>71</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Contraseña:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_6">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>330</y>
-      <width>121</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Verificar Contraseña:</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>200</y>
+      <x>30</x>
+      <y>190</y>
       <width>111</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
      <string>Nombre de usuario:</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
       <x>70</x>
-      <y>50</y>
-      <width>181</width>
-      <height>41</height>
+      <y>350</y>
+      <width>71</width>
+      <height>16</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Contraseña:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>430</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Verificar Contraseña:</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_2">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>50</y>
+      <x>390</x>
+      <y>100</y>
       <width>181</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 170, 127);</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_3">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>120</y>
-      <width>181</width>
-      <height>41</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit_4">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
+      <x>160</x>
       <y>180</y>
       <width>181</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 170, 127);</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_4">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>260</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 170, 127);</string>
+    </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_5">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>240</y>
+      <x>160</x>
+      <y>340</y>
       <width>181</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 170, 127);</string>
     </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_6">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>310</y>
+      <x>160</x>
+      <y>420</y>
       <width>181</width>
       <height>41</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 170, 127);</string>
+    </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="botonRegresar">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>390</y>
-      <width>75</width>
-      <height>24</height>
+      <x>210</x>
+      <y>510</y>
+      <width>91</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(242, 144, 87);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
      <string>Regresar</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="botonRegistrarse">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>390</y>
-      <width>75</width>
-      <height>24</height>
+      <x>400</x>
+      <y>510</y>
+      <width>101</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(242, 144, 87);
+font: 700 9pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
      <string>Registrarse</string>
@@ -207,6 +292,8 @@
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="img/imagen.qrc"/>
+ </resources>
  <connections/>
 </ui>
