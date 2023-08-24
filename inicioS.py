@@ -8,8 +8,8 @@ app = QtWidgets.QApplication([])
 # Cargar el archivo .ui
 principal = uic.loadUi("principal.ui")
 login = uic.loadUi("login.ui")
-login_correcto = uic.loadUi("login_correcto")
-login_error = uic.loadUi("login_error")
+login_correcto = uic.loadUi("login_correcto.ui")
+login_error = uic.loadUi("login_error.ui")
 
 def gui_login():
     login.show()
