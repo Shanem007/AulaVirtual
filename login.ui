@@ -47,29 +47,6 @@
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QComboBox" name="comboBox">
-    <property name="geometry">
-     <rect>
-      <x>190</x>
-      <y>200</y>
-      <width>171</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(255, 170, 127);</string>
-    </property>
-    <item>
-     <property name="text">
-      <string>Docente</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>Estudiante</string>
-     </property>
-    </item>
-   </widget>
    <widget class="QTextEdit" name="usuario_IS">
     <property name="geometry">
      <rect>
@@ -195,6 +172,32 @@ color: rgb(242, 144, 87);</string>
       <width>400</width>
       <height>400</height>
      </size>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>200</y>
+      <width>89</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Docente</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_2">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>200</y>
+      <width>89</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Estudiante</string>
     </property>
    </widget>
   </widget>
