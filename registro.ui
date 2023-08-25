@@ -82,7 +82,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="Nombre">
     <property name="geometry">
      <rect>
       <x>100</x>
@@ -191,7 +191,7 @@
      <string>Verificar Contraseña:</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_2">
+   <widget class="QTextEdit" name="Apellido">
     <property name="geometry">
      <rect>
       <x>390</x>
@@ -204,7 +204,7 @@
      <string notr="true">background-color: rgb(255, 170, 127);</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_3">
+   <widget class="QTextEdit" name="nombreUsuario">
     <property name="geometry">
      <rect>
       <x>160</x>
@@ -217,7 +217,7 @@
      <string notr="true">background-color: rgb(255, 170, 127);</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_4">
+   <widget class="QTextEdit" name="CorreoInstitucional">
     <property name="geometry">
      <rect>
       <x>160</x>
@@ -230,7 +230,7 @@
      <string notr="true">background-color: rgb(255, 170, 127);</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_5">
+   <widget class="QTextEdit" name="Contra">
     <property name="geometry">
      <rect>
       <x>160</x>
@@ -243,7 +243,7 @@
      <string notr="true">background-color: rgb(255, 170, 127);</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit_6">
+   <widget class="QTextEdit" name="verificarContra">
     <property name="geometry">
      <rect>
       <x>160</x>

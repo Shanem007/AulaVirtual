@@ -15,6 +15,7 @@ registro = uic.loadUi("registro.ui")
 
 def gui_login():
     login.show()
+    principal.hide()
 
 #Validación de usuario y contraseña con base de datos sqlite3
 def validacion_login():
@@ -34,7 +35,6 @@ def validacion_login():
     conexion.close()
 
 
-
 def gui_login_correcto():
     login.hide()
     login_correcto.show()
@@ -45,11 +45,15 @@ def gui_login_error():
     login_error.show()
 
 def gui_registro():
-    registro.hide()
     registro.show()
+    principal.hide()
 
 def gui_principal():
-    principal.hide()
+    principal.show()
+    registro.hide()
+
+def gui_rloginprincipal():
+    login.hide()
     principal.show()
 
 
@@ -61,7 +65,7 @@ login.botonIngresar_IS.clicked.connect(validacion_login)
 login_error.botonRegresar.clicked.connect(gui_login)
 principal.botonRegistro.clicked.connect(gui_registro)
 registro.botonRegresar1.clicked.connect(gui_principal)
-login.botonRegresar_IS.clicked.connect(gui_principal)
+login.botonRegresar_IS.clicked.connect(gui_rloginprincipal)
 
 #ejecutable
 principal.show()
