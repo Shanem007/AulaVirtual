@@ -3,6 +3,7 @@ from PyQt6 import QtWidgets, uic
 import sqlite3
 
 #holis 
+#chao 
 
 #inicar la aplicación
 app = QtWidgets.QApplication([])
