@@ -16,6 +16,7 @@ login_error = uic.loadUi("login_error.ui")
 registro = uic.loadUi("registro.ui")
 base = uic.loadUi("base.ui")
 Menu = uic.loadUi("Menu.ui")
+CursoAsignatura = uic.loadUi("CursoAsignatura.ui")
                   
 
 def gui_login():
@@ -111,6 +112,9 @@ def gui_base():
 def gui_Menu():
     Menu.show()
 
+def gui_CursoAsignatura():
+    CursoAsignatura.show()
+
 
 
 #botones
@@ -123,6 +127,7 @@ login.botonRegresar_IS.clicked.connect(gui_rloginprincipal)
 registro.botonRegistrarse.clicked.connect(agregar_usuario)
 base.botonEntendido.clicked.connect(gui_principal)
 login_correcto.botonEntendido.clicked.connect(gui_Menu)
+Menu.botonVer.clicked.connect(gui_CursoAsignatura)
 
 
 
