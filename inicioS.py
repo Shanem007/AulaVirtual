@@ -45,11 +45,13 @@ def gui_login_error():
     login_error.show()
 
 def gui_registro():
-    login.hide()
+    registro.hide()
     registro.show()
 
 def gui_principal():
-    principal.show
+    principal.hide()
+    principal.show()
+
 
 
 
@@ -58,8 +60,8 @@ principal.botonInicioSesion.clicked.connect(gui_login)
 login.botonIngresar_IS.clicked.connect(validacion_login)
 login_error.botonRegresar.clicked.connect(gui_login)
 principal.botonRegistro.clicked.connect(gui_registro)
-registro.botonRegresar.clicked.connect(gui_principal)
-
+registro.botonRegresar1.clicked.connect(gui_principal)
+login.botonRegresar_IS.clicked.connect(gui_principal)
 
 #ejecutable
 principal.show()

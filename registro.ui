@@ -256,7 +256,7 @@
      <string notr="true">background-color: rgb(255, 170, 127);</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="botonRegresar">
+   <widget class="QPushButton" name="botonRegresar1">
     <property name="geometry">
      <rect>
       <x>210</x>

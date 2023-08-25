@@ -107,7 +107,7 @@ background-color: rgb(217, 167, 74);</string>
      <string>Ingresar</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="botonCancelar_IS">
+   <widget class="QPushButton" name="botonRegresar_IS">
     <property name="geometry">
      <rect>
       <x>330</x>
@@ -121,7 +121,7 @@ background-color: rgb(217, 167, 74);</string>
 background-color: rgb(217, 167, 74);</string>
     </property>
     <property name="text">
-     <string>Cancelar</string>
+     <string>Regresar</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
