@@ -17,6 +17,7 @@ registro = uic.loadUi("registro.ui")
 base = uic.loadUi("base.ui")
 Menu = uic.loadUi("Menu.ui")
 CursoAsignatura = uic.loadUi("CursoAsignatura.ui")
+BienvenidaUsuario = uic.loadUi("BienvenidaUsuario")
                   
 
 def gui_login():
@@ -115,6 +116,8 @@ def gui_Menu():
 def gui_CursoAsignatura():
     CursoAsignatura.show()
 
+def gui_BienvenidaUsuario():
+    BienvenidaUsuario.show()
 
 
 #botones

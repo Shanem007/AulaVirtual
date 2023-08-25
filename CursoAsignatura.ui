@@ -36,7 +36,7 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>80</y>
+     <y>60</y>
      <width>451</width>
      <height>51</height>
     </rect>
@@ -53,9 +53,9 @@ background-color: rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="pushButton_6">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>300</x>
      <y>150</y>
-     <width>371</width>
+     <width>421</width>
      <height>471</height>
     </rect>
    </property>
@@ -67,6 +67,16 @@ background-image: url(:/prefijoNuevo/m2.jpg);
    </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>img/m2.jpg</normaloff>img/m2.jpg</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>500</width>
+     <height>4000</height>
+    </size>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">
@@ -124,7 +134,7 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>460</y>
+     <y>400</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -137,28 +147,11 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
     <string>Evaluaciones</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>390</y>
-     <width>181</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(217, 167, 74);
-font: 700 14pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>Videos</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton_5">
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>530</y>
+     <y>470</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -172,8 +165,6 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="imagenes/mate.jpg"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
