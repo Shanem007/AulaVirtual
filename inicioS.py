@@ -18,24 +18,6 @@ def gui_login():
     login.show()
     principal.hide()
 
-#Validación de usuario y contraseña con base de datos sqlite3
-"""def validacion_login():
-    # Conexión a la base de datos
-    conexion = sqlite3.connect("database.db")
-    cursor = conexion.cursor()
-    # Consulta a la base de datos
-    usuario = login.usuario_IS.toPlainText()  # Accede al contenido del widget de usuario
-    contraseña = login.clave_IS.toPlainText()  # Accede al contenido del widget de contraseña
-    cursor.execute("SELECT * FROM credenciales WHERE usuario = ? AND contraseña = ?", (usuario, contraseña))
-    # Recuperar los resultados de la consulta
-    if cursor.fetchall():
-        gui_login_correcto()
-    else:
-        gui_login_error()
-    # Cerrar la conexión
-    conexion.close()"""
-
-
 def agregar_usuario():
     # Recuperar los valores de los campos
     Nombre = registro.Nombre.toPlainText()
@@ -70,6 +52,32 @@ def agregar_usuario():
         # Cerrar la conexión
         conexion.close()
 
+#Validación de usuario y contraseña con base de datos sqlite3
+def validacion_login():
+    # Conexión a la base de datos
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
+    # Consulta a la base de datos
+    NombreUsuario = login.usuario_IS.toPlainText()  # Accede al contenido del widget de usuario
+    Clave = login.clave_IS.toPlainText()  # Accede al contenido del widget de contraseña
+    
+    if login.rbuttonDocente.isChecked():
+        cursor.execute("SELECT * FROM RegistroDocente WHERE NombreUsuario = ? AND Clave = ?", (NombreUsuario, Clave))
+    else:
+        login.rbuttonEstudiante.isChecked()
+        cursor.execute("SELECT * FROM RegistroEstudiante WHERE Nombreusuario = ? AND Clave = ?", (NombreUsuario, Clave))
+
+    # Recuperar los resultados de la consulta
+    if cursor.fetchall():
+        gui_login_correcto()
+    else:
+        gui_login_error()
+
+    
+        # Cerrar la conexión   
+        conexion.close()
+
+
 def gui_login_correcto():
     login.hide()
     login_correcto.show()
@@ -99,7 +107,7 @@ def gui_base():
 
 #botones
 principal.botonInicioSesion.clicked.connect(gui_login)
-#login.botonIngresar_IS.clicked.connect(validacion_login)
+login.botonIngresar_IS.clicked.connect(validacion_login)
 login_error.botonRegresar.clicked.connect(gui_login)
 principal.botonRegistro.clicked.connect(gui_registro)
 registro.botonRegresar1.clicked.connect(gui_principal)
