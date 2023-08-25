@@ -19,6 +19,7 @@ def gui_login():
     login.show()
     principal.hide()
 
+#base de datos 
 def agregar_usuario():
     # Recuperar los valores de los campos
     Nombre = registro.Nombre.toPlainText()
