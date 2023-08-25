@@ -264,7 +264,7 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
      <string>Registrarse</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton">
+   <widget class="QRadioButton" name="rbuttonDocente">
     <property name="geometry">
      <rect>
       <x>440</x>
@@ -277,7 +277,7 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
      <string>Docente</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QRadioButton" name="rbuttonEstudiante">
     <property name="geometry">
      <rect>
       <x>440</x>
@@ -320,6 +320,23 @@ font: 700 9pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="echoMode">
      <enum>QLineEdit::Password</enum>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Aviso">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>410</y>
+      <width>281</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+color: rgb(255, 18, 1);</string>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

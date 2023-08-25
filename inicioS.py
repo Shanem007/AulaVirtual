@@ -2,7 +2,6 @@
 from PyQt6 import QtWidgets, uic 
 import sqlite3
 
-#holiiiiis
 
 #inicar la aplicación
 app = QtWidgets.QApplication([])
@@ -36,6 +35,7 @@ def gui_login():
     # Cerrar la conexión
     conexion.close()"""
 
+
 def agregar_usuario():
     # Recuperar los valores de los campos
     Nombre = registro.Nombre.toPlainText()
@@ -44,20 +44,31 @@ def agregar_usuario():
     CorreoInstitucional = registro.CorreoInstitucional.toPlainText()
     Clave = registro.Clave.text()
     VerificarClave = registro.VerificarClave.text()
-
-    # Conexión a la base de datos
-    conexion = sqlite3.connect("database.db")
-    cursor = conexion.cursor()
-    # Insertar los datos en la tabla
-    cursor.execute("INSERT INTO RegistroDocente (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave, VerificarClave) VALUES (?, ?, ?, ?, ?,?)", (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave,VerificarClave))
-    # Guardar los cambios
-    conexion.commit()
-   # Mostrar la ventana base
-    gui_base()
-    # Cerrar la conexión
-    conexion.close()
+    #bnuttonDocente = registro.rbuttonDocente.isChecked()
 
 
+    if Clave != VerificarClave:
+        registro.Aviso.setText("La contraseña no coincide")
+    else:
+
+        # Conexión a la base de datos
+        conexion = sqlite3.connect("database.db")
+        cursor = conexion.cursor()
+        if registro.rbuttonDocente.isChecked():
+             # Insertar los datos en la tabla
+            cursor.execute("INSERT INTO RegistroDocente (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave, VerificarClave) VALUES (?, ?, ?, ?, ?,?)", (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave,VerificarClave))
+       
+        else:
+            registro.rbuttonEstudiante.isChecked()
+         # Insertar los datos en la tabla
+            cursor.execute("INSERT INTO RegistroEstudiante (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave, VerificarClave) VALUES (?, ?, ?, ?, ?,?)", (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave,VerificarClave))
+       
+        # Guardar los cambios
+        conexion.commit()
+        # Mostrar la ventana base
+        gui_base()
+        # Cerrar la conexión
+        conexion.close()
 
 def gui_login_correcto():
     login.hide()
