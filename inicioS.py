@@ -15,6 +15,8 @@ login_correcto = uic.loadUi("login_correcto.ui")
 login_error = uic.loadUi("login_error.ui")
 registro = uic.loadUi("registro.ui")
 base = uic.loadUi("base.ui")
+Menu = uic.loadUi("Menu.ui")
+                  
 
 def gui_login():
     login.show()
@@ -106,6 +108,9 @@ def gui_rloginprincipal():
 def gui_base():
     base.show()
 
+def gui_Menu():
+    Menu.show()
+
 
 
 #botones
@@ -117,6 +122,7 @@ registro.botonRegresar1.clicked.connect(gui_principal)
 login.botonRegresar_IS.clicked.connect(gui_rloginprincipal)
 registro.botonRegistrarse.clicked.connect(agregar_usuario)
 base.botonEntendido.clicked.connect(gui_principal)
+login_correcto.botonEntendido.clicked.connect(gui_Menu)
 
 
 
