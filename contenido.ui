@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>818</width>
-    <height>622</height>
+    <height>594</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -62,7 +62,12 @@ background-color: rgb(255, 255, 255);</string>
      </rect>
     </property>
     <property name="styleSheet">
+<<<<<<< HEAD
      <string notr="true">background-color: rgb(85, 170, 255);</string>
+=======
+     <string notr="true">
+background-color: rgb(165, 239, 255);</string>
+>>>>>>> dd89c447e8d1ec1009571f56bd07f29793b7ca8f
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -90,6 +95,10 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
       <width>631</width>
       <height>231</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(165, 239, 255);</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton">
