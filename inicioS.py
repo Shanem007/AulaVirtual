@@ -2,6 +2,8 @@
 from PyQt6 import QtWidgets, uic 
 import sqlite3
 
+#holis 
+#chao 
 
 #inicar la aplicación
 app = QtWidgets.QApplication([])
@@ -13,11 +15,16 @@ login_correcto = uic.loadUi("login_correcto.ui")
 login_error = uic.loadUi("login_error.ui")
 registro = uic.loadUi("registro.ui")
 base = uic.loadUi("base.ui")
+Menu = uic.loadUi("Menu.ui")
+CursoAsignatura = uic.loadUi("CursoAsignatura.ui")
+BienvenidaUsuario = uic.loadUi("BienvenidaUsuario")
+                  
 
 def gui_login():
     login.show()
     principal.hide()
 
+#base de datos 
 def agregar_usuario():
     # Recuperar los valores de los campos
     Nombre = registro.Nombre.toPlainText()
@@ -103,6 +110,14 @@ def gui_rloginprincipal():
 def gui_base():
     base.show()
 
+def gui_Menu():
+    Menu.show()
+
+def gui_CursoAsignatura():
+    CursoAsignatura.show()
+
+def gui_BienvenidaUsuario():
+    BienvenidaUsuario.show()
 
 
 #botones
@@ -114,6 +129,8 @@ registro.botonRegresar1.clicked.connect(gui_principal)
 login.botonRegresar_IS.clicked.connect(gui_rloginprincipal)
 registro.botonRegistrarse.clicked.connect(agregar_usuario)
 base.botonEntendido.clicked.connect(gui_principal)
+login_correcto.botonEntendido.clicked.connect(gui_Menu)
+Menu.botonVer.clicked.connect(gui_CursoAsignatura)
 
 
 
