@@ -28,7 +28,7 @@ def gui_login():
 def agregar_usuario():
     # Recuperar los valores de los campos
     Nombre = registro.Nombre.toPlainText()
-    Apellido = registro.Apellido.toPlainText()
+    Apellido = registro.Apellido.toPlainText() #.toPlainText--> cuando usamos un textedit en pyqt6
     NombreUsuario = registro.NombreUsuario.toPlainText()
     CorreoInstitucional = registro.CorreoInstitucional.toPlainText()
     Clave = registro.Clave.text()
@@ -48,7 +48,7 @@ def agregar_usuario():
             cursor.execute("INSERT INTO RegistroDocente (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave, VerificarClave) VALUES (?, ?, ?, ?, ?,?)", (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave,VerificarClave))
        
         else:
-            registro.rbuttonEstudiante.isChecked()
+            registro.rbuttonEstudiante.isChecked() #isChecked -->cuando usamos un raddiobutton en pyqt6
          # Insertar los datos en la tabla estudiante
             cursor.execute("INSERT INTO RegistroEstudiante (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave, VerificarClave) VALUES (?, ?, ?, ?, ?,?)", (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave,VerificarClave))
        
@@ -88,14 +88,10 @@ def validacion_login():
         conexion.close()
 
 #GUI indica las funciones de las ventanas
-# "r" al inicio en el nombre de las funciones indica que es una función para un boton de regresar y su
-# estructura es así: r_ventanaOrigen_ventanaDestino.
 
 def gui_login_correcto():
     login.hide()
     login_correcto.show()
-    
-
 
 def gui_login_error():
     login.hide()
@@ -125,7 +121,6 @@ def gui_CursoAsignatura():
     CursoAsignatura.show()
     Menu.hide()
 
-
 def gui_bienvenidaEstudiante():
     bienvenidaEstudiante.show()
 
@@ -138,6 +133,8 @@ def gui_Pestañas():
 def gui_informenotas():
     informenotas.show()
 
+# "r" al inicio en el nombre de las funciones indica que es una función para un boton de regresar y su
+# estructura es así: r_ventanaOrigen_ventanaDestino.
 #Boton regresar en la pantalla de error de ingreso (Oculta el error y muestra el login)
 def r_loginIncorrecto_login():
     login_error.hide()
@@ -148,6 +145,7 @@ def r_guiContenido_guiCursoAsignatura():
     CursoAsignatura.show()
 
 #botones
+# estructura:ventana.nombre del boton.clicked(al hacer click).connect(se conecta a una funcion) (función a donde se dirige)
 principal.botonInicioSesion.clicked.connect(gui_login)
 login.botonIngresar_IS.clicked.connect(validacion_login)
 login_error.botonRegresar.clicked.connect(r_loginIncorrecto_login)
