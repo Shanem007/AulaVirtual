@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>642</height>
+    <height>676</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
      <x>60</x>
      <y>30</y>
      <width>681</width>
-     <height>591</height>
+     <height>641</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -127,6 +127,10 @@ font: 700 11pt &quot;Segoe UI&quot;;</string>
      <height>451</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">
+background-color: rgb(165, 239, 255);</string>
+   </property>
    <property name="orientation">
     <enum>Qt::Vertical</enum>
    </property>
@@ -140,6 +144,10 @@ font: 700 11pt &quot;Segoe UI&quot;;</string>
      <height>451</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">
+background-color: rgb(165, 239, 255);</string>
+   </property>
    <property name="orientation">
     <enum>Qt::Vertical</enum>
    </property>
@@ -152,6 +160,10 @@ font: 700 11pt &quot;Segoe UI&quot;;</string>
      <width>20</width>
      <height>451</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+background-color: rgb(165, 239, 255);</string>
    </property>
    <property name="orientation">
     <enum>Qt::Vertical</enum>
@@ -179,8 +191,29 @@ font: 700 11pt &quot;Segoe UI&quot;;</string>
      <height>16</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">
+background-color: rgb(165, 239, 255);</string>
+   </property>
    <property name="orientation">
     <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="botonCancelar">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>600</y>
+     <width>181</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(217, 167, 74);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Regresar</string>
    </property>
   </widget>
   <zorder>label</zorder>
@@ -194,6 +227,7 @@ font: 700 11pt &quot;Segoe UI&quot;;</string>
   <zorder>label_5</zorder>
   <zorder>label_6</zorder>
   <zorder>line_5</zorder>
+  <zorder>botonCancelar</zorder>
  </widget>
  <resources/>
  <connections/>

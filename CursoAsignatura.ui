@@ -83,7 +83,7 @@ background-image: url(:/prefijoNuevo/m2.jpg);
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>180</y>
+     <y>150</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -100,7 +100,7 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>300</y>
+     <y>250</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -117,7 +117,7 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>410</y>
+     <y>360</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -134,7 +134,7 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>520</y>
+     <y>450</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -145,6 +145,23 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
     <string>Informe</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="botonInforme_2">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>550</y>
+     <width>181</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(85, 170, 255);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Regresar</string>
    </property>
   </widget>
  </widget>
