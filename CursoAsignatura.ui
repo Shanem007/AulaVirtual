@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>776</width>
-    <height>669</height>
+    <height>697</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,6 +17,9 @@
    <string notr="true">background-color: rgb(96, 137, 191);</string>
   </property>
   <widget class="QLabel" name="label">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>50</x>
@@ -36,7 +39,7 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>60</y>
+     <y>80</y>
      <width>451</width>
      <height>51</height>
     </rect>
@@ -53,16 +56,20 @@ background-color: rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="pushButton_6">
    <property name="geometry">
     <rect>
-     <x>300</x>
+     <x>330</x>
      <y>150</y>
-     <width>421</width>
+     <width>371</width>
      <height>471</height>
     </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(255, 255, 255);
 border-image: url(:/prefijoNuevo/m2.jpg);
 background-image: url(:/prefijoNuevo/m2.jpg);
+font: 48pt &quot;Segoe UI&quot;;
 </string>
    </property>
    <property name="text">
@@ -74,16 +81,19 @@ background-image: url(:/prefijoNuevo/m2.jpg);
    </property>
    <property name="iconSize">
     <size>
-     <width>500</width>
-     <height>4000</height>
+     <width>700</width>
+     <height>600</height>
     </size>
    </property>
+   <property name="autoRepeatDelay">
+    <number>300</number>
+   </property>
   </widget>
-  <widget class="QPushButton" name="botonContenido">
+  <widget class="QPushButton" name="pushButton_2">
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>180</y>
+     <y>170</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -96,11 +106,11 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
     <string>Contenido</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="botonDoc">
+  <widget class="QPushButton" name="pushButton_3">
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>300</y>
+     <y>260</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -110,14 +120,31 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
 font: 700 14pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
-    <string>Subir archivos</string>
+    <string>Documentos</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_7">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>350</y>
+     <width>181</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(217, 167, 74);
+font: 700 14pt &quot;Segoe UI&quot;;</string>
+   </property>
+   <property name="text">
+    <string>Enlaces</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_4">
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>410</y>
+     <y>440</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -130,11 +157,11 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
     <string>Evaluaciones</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="botonInforme">
+  <widget class="QPushButton" name="pushButton_5">
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>520</y>
+     <y>530</y>
      <width>181</width>
      <height>51</height>
     </rect>
