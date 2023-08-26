@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>776</width>
-    <height>697</height>
+    <height>669</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -79,7 +79,7 @@ background-image: url(:/prefijoNuevo/m2.jpg);
     </size>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="botonContenido">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -96,11 +96,11 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
     <string>Contenido</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_3">
+  <widget class="QPushButton" name="botonDoc">
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>250</y>
+     <y>300</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -110,31 +110,14 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
 font: 700 14pt &quot;Segoe UI&quot;;</string>
    </property>
    <property name="text">
-    <string>Documentos</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_7">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>320</y>
-     <width>181</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: rgb(217, 167, 74);
-font: 700 14pt &quot;Segoe UI&quot;;</string>
-   </property>
-   <property name="text">
-    <string>Enlaces</string>
+    <string>Subir archivos</string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_4">
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>400</y>
+     <y>410</y>
      <width>181</width>
      <height>51</height>
     </rect>
@@ -147,11 +130,11 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
     <string>Evaluaciones</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_5">
+  <widget class="QPushButton" name="botonInforme">
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>470</y>
+     <y>520</y>
      <width>181</width>
      <height>51</height>
     </rect>

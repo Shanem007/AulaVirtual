@@ -2,8 +2,6 @@
 from PyQt6 import QtWidgets, uic 
 import sqlite3
 
-#holis 
-#chao 
 
 #inicar la aplicación
 app = QtWidgets.QApplication([])
@@ -17,8 +15,10 @@ registro = uic.loadUi("registro.ui")
 base = uic.loadUi("base.ui")
 Menu = uic.loadUi("Menu.ui")
 CursoAsignatura = uic.loadUi("CursoAsignatura.ui")
-BienvenidaUsuario = uic.loadUi("BienvenidaUsuario")
-                  
+bienvenidaEstudiante = uic.loadUi("bienvenidaEstudiante.ui")
+contenido = uic.loadUi("contenido.ui")
+Pestañas = uic.loadUi("Pestañas.ui") 
+informenotas = uic.loadUi("informenotas.ui")      
 
 def gui_login():
     login.show()
@@ -33,7 +33,7 @@ def agregar_usuario():
     CorreoInstitucional = registro.CorreoInstitucional.toPlainText()
     Clave = registro.Clave.text()
     VerificarClave = registro.VerificarClave.text()
-    #bnuttonDocente = registro.rbuttonDocente.isChecked()
+    
 
 
     if Clave != VerificarClave:
@@ -44,12 +44,12 @@ def agregar_usuario():
         conexion = sqlite3.connect("database.db")
         cursor = conexion.cursor()
         if registro.rbuttonDocente.isChecked():
-             # Insertar los datos en la tabla
+             # Insertar los datos en la tabla docente
             cursor.execute("INSERT INTO RegistroDocente (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave, VerificarClave) VALUES (?, ?, ?, ?, ?,?)", (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave,VerificarClave))
        
         else:
             registro.rbuttonEstudiante.isChecked()
-         # Insertar los datos en la tabla
+         # Insertar los datos en la tabla estudiante
             cursor.execute("INSERT INTO RegistroEstudiante (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave, VerificarClave) VALUES (?, ?, ?, ?, ?,?)", (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave,VerificarClave))
        
         # Guardar los cambios
@@ -76,7 +76,10 @@ def validacion_login():
 
     # Recuperar los resultados de la consulta
     if cursor.fetchall():
-        gui_login_correcto()
+        if login.rbuttonDocente.isChecked():
+            gui_login_correcto()  # Mostrar ventana de login correcto
+        else:
+            gui_bienvenidaEstudiante()  # Mostrar ventana de bienvenida para estudiantes
     else:
         gui_login_error()
 
@@ -84,10 +87,14 @@ def validacion_login():
         # Cerrar la conexión   
         conexion.close()
 
+#GUI indica las funciones de las ventanas
+# "r" al inicio en el nombre de las funciones indica que es una función para un boton de regresar y su
+# estructura es así: r_ventanaOrigen_ventanaDestino.
 
 def gui_login_correcto():
     login.hide()
     login_correcto.show()
+    
 
 
 def gui_login_error():
@@ -112,18 +119,38 @@ def gui_base():
 
 def gui_Menu():
     Menu.show()
+    login_correcto.hide()
 
 def gui_CursoAsignatura():
     CursoAsignatura.show()
+    Menu.hide()
 
-def gui_BienvenidaUsuario():
-    BienvenidaUsuario.show()
 
+def gui_bienvenidaEstudiante():
+    bienvenidaEstudiante.show()
+
+def gui_contenido():
+    contenido.show()
+
+def gui_Pestañas():
+    Pestañas.show()
+
+def gui_informenotas():
+    informenotas.show()
+
+#Boton regresar en la pantalla de error de ingreso (Oculta el error y muestra el login)
+def r_loginIncorrecto_login():
+    login_error.hide()
+    login.show()
+
+def r_guiContenido_guiCursoAsignatura():
+    contenido.hide()
+    CursoAsignatura.show()
 
 #botones
 principal.botonInicioSesion.clicked.connect(gui_login)
 login.botonIngresar_IS.clicked.connect(validacion_login)
-login_error.botonRegresar.clicked.connect(gui_login)
+login_error.botonRegresar.clicked.connect(r_loginIncorrecto_login)
 principal.botonRegistro.clicked.connect(gui_registro)
 registro.botonRegresar1.clicked.connect(gui_principal)
 login.botonRegresar_IS.clicked.connect(gui_rloginprincipal)
@@ -131,6 +158,10 @@ registro.botonRegistrarse.clicked.connect(agregar_usuario)
 base.botonEntendido.clicked.connect(gui_principal)
 login_correcto.botonEntendido.clicked.connect(gui_Menu)
 Menu.botonVer.clicked.connect(gui_CursoAsignatura)
+CursoAsignatura.botonContenido.clicked.connect(gui_contenido)
+CursoAsignatura.botonDoc.clicked.connect(gui_Pestañas)
+CursoAsignatura.botonInforme.clicked.connect(gui_informenotas)
+contenido.botonCancelar.clicked.connect(r_guiContenido_guiCursoAsignatura)
 
 
 

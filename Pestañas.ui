@@ -116,6 +116,19 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
          <string>SUBIR DOCUMENTO</string>
         </property>
        </widget>
+       <widget class="QTextEdit" name="textEdit_2">
+        <property name="geometry">
+         <rect>
+          <x>90</x>
+          <y>80</y>
+          <width>191</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(96, 137, 191);</string>
+        </property>
+       </widget>
       </widget>
       <widget class="QFrame" name="frame_4">
        <property name="geometry">
