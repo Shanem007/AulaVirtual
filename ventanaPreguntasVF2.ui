@@ -98,27 +98,27 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
    <widget class="QRadioButton" name="radioButtonVerdadero">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>200</x>
       <y>340</y>
       <width>89</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string/>
+     <string>Verdadero</string>
     </property>
    </widget>
    <widget class="QRadioButton" name="radioButtonFalso">
     <property name="geometry">
      <rect>
-      <x>410</x>
+      <x>370</x>
       <y>340</y>
       <width>89</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string/>
+     <string>Falso</string>
     </property>
    </widget>
   </widget>
