@@ -24,7 +24,7 @@ CursoAsignatura1 = uic.loadUi("CursoAsignatura1.ui")
 bienvenidaEstudiante = uic.loadUi("bienvenidaEstudiante.ui")
 contenido = uic.loadUi("contenido.ui")
 Pestañas = uic.loadUi("Pestañas.ui") 
-informenotas = uic.loadUi("informenotas.ui") 
+
 CursosEst = uic.loadUi("CursosEst.ui")     
 mtricMate = uic.loadUi("mtricMate.ui")
 mtricLengua = uic.loadUi("mtricLengua.ui")
@@ -160,8 +160,7 @@ def gui_contenido():
 def gui_Pestañas():
     Pestañas.show()
 
-def gui_informenotas():
-    informenotas.show()
+
 
 def gui_CursosEst():
     CursosEst.show()
@@ -293,8 +292,10 @@ def r_Pestañas_CursoAsignatura():
     Pestañas.hide()
     CursoAsignatura1.show()
 
-def r_informenotas_CursoAsignatura():
-    informenotas.hide()
+
+def r_informeEstu_CursoAsignatura():
+    informeEstu.hide()
+
 
 def r_CursoAsignatura_Menu():
     CursoAsignatura1.hide()
@@ -426,7 +427,7 @@ CursoAsignatura1.botonDoc.clicked.connect(gui_Pestañas)
 
 contenido.botonCancelar.clicked.connect(r_guiContenido_guiCursoAsignatura)
 Pestañas.botonOk.clicked.connect(r_Pestañas_CursoAsignatura) #boton regresar
-informenotas.botonRegresarNotas.clicked.connect(r_informenotas_CursoAsignatura) #boton regresar
+
 CursoAsignatura1.botoRegresarCurso.clicked.connect(gui_Menu)
 Menu.botonRegresarMenu.clicked.connect(r_Menu_login) #boton regresar
 bienvenidaEstudiante.botonIrCurso.clicked.connect(gui_CursosEst)
@@ -457,6 +458,7 @@ preguntas.botonPreguntasCerradas.clicked.connect(gui_ventanaPreguntasVF2)
 preguntas.botonPreguntasOpcionMultiple.clicked.connect(gui_ventanaPreguntasOM)
 Menu.botonExamenRecopilado.clicked.connect(gui_examenRecopilado)
 CursoAsignatura1.botonInforme.clicked.connect(gui_informeEstu)
+informeEstu.botonRegresar.clicked.connect(r_informeEstu_CursoAsignatura) #boton regresar
 
 #ejecutable
 principal.show()
