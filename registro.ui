@@ -85,8 +85,8 @@
    <widget class="QTextEdit" name="Nombre">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>100</y>
+      <x>160</x>
+      <y>190</y>
       <width>181</width>
       <height>41</height>
      </rect>
@@ -98,8 +98,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>110</y>
+      <x>90</x>
+      <y>200</y>
       <width>49</width>
       <height>16</height>
      </rect>
@@ -114,8 +114,8 @@
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>110</y>
+      <x>90</x>
+      <y>270</y>
       <width>49</width>
       <height>16</height>
      </rect>
@@ -130,24 +130,24 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>280</y>
+      <x>320</x>
+      <y>110</y>
       <width>111</width>
-      <height>16</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
-     <string>Correo Institucional:</string>
+     <string>Número de cédula</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>190</y>
+      <x>10</x>
+      <y>110</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -194,8 +194,8 @@
    <widget class="QTextEdit" name="Apellido">
     <property name="geometry">
      <rect>
-      <x>390</x>
-      <y>100</y>
+      <x>160</x>
+      <y>260</y>
       <width>181</width>
       <height>41</height>
      </rect>
@@ -207,8 +207,8 @@
    <widget class="QTextEdit" name="NombreUsuario">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>180</y>
+      <x>120</x>
+      <y>100</y>
       <width>181</width>
       <height>41</height>
      </rect>
@@ -220,8 +220,8 @@
    <widget class="QTextEdit" name="CorreoInstitucional">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>260</y>
+      <x>430</x>
+      <y>100</y>
       <width>181</width>
       <height>41</height>
      </rect>

@@ -52,7 +52,7 @@ def agregar_usuario():
     Nombre = registro.Nombre.toPlainText()
     Apellido = registro.Apellido.toPlainText() #.toPlainText--> cuando usamos un textedit en pyqt6
     NombreUsuario = registro.NombreUsuario.toPlainText()
-    CorreoInstitucional = registro.CorreoInstitucional.toPlainText()
+    Cedula = registro.CorreoInstitucional.toPlainText()
     Clave = registro.Clave.text()   #.text -->cuando usamos un line edit en pyqt6
     VerificarClave = registro.VerificarClave.text()
     
@@ -67,12 +67,12 @@ def agregar_usuario():
         cursor = conexion.cursor()
         if registro.rbuttonDocente.isChecked():   #isChecked --> cuando usamos un raddiobutton en pyqt6
              # Insertar los datos en la tabla docente
-            cursor.execute("INSERT INTO RegistroDocente (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave, VerificarClave) VALUES (?, ?, ?, ?, ?,?)", (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave,VerificarClave))
+            cursor.execute("INSERT INTO RegistroDocente (Nombre, Apellido, NombreUsuario, Cedula , Clave, VerificarClave) VALUES (?, ?, ?, ?, ?,?)", (Nombre, Apellido, NombreUsuario,Cedula , Clave,VerificarClave))
        
         else:
             registro.rbuttonEstudiante.isChecked() #isChecked --> cuando usamos un raddiobutton en pyqt6
          # Insertar los datos en la tabla estudiante
-            cursor.execute("INSERT INTO RegistroEstudiante (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave, VerificarClave) VALUES (?, ?, ?, ?, ?,?)", (Nombre, Apellido, NombreUsuario, CorreoInstitucional, Clave,VerificarClave))
+            cursor.execute("INSERT INTO RegistroEstudiante (Nombre, Apellido, NombreUsuario, Cedula , Clave, VerificarClave) VALUES (?, ?, ?, ?, ?,?)", (Nombre, Apellido, NombreUsuario, Cedula, Clave,VerificarClave))
        
         # Guardar los cambios
         conexion.commit()
@@ -196,52 +196,56 @@ def gui_ventanaPreguntasOM():
 def gui_examenRecopilado():
     examenRecopilado.show()
     
-    
-    
+
+# Administración de estudiantes
+
+
+
+""""    
 #Tabla informe de estudiantes       
 def gui_informeEstu(self):
     informeEstu.show()
     
-    """self.verLista.clicked.connect(self.funcion_verLista)
-    self.actualizar1.clicked.connect(self.funcion_actualizar1)
-    self.eliminar1.clicked.connect(self.funcion_eliminar1)
-    self.Regresarcurso.clicked.connect(self.funcion_Regresarcurso)
+    verLista.clicked.connect(funcion_verLista)
+    actualizar1.clicked.connect(funcion_actualizar1)
+    eliminar1.clicked.connect(funcion_eliminar1)
+    Regresarcurso.clicked.connect(funcion_Regresarcurso)
         
-    self.refrescar.clicked.connect(self.funcion_refrescar)
-    self.buscar3.clicked.connect(self.funcion_buscar3)
-    self.actualizar2.clicked.connect(self.funcion_actualizar2)
-    self.buscar1.clicked.connect(self.funcion_buscar1)
-    self.eliminar2.clicked.connect(self.funcion_eliminar2)
+    refrescar.clicked.connect(funcion_refrescar)
+    buscar3.clicked.connect(funcion_buscar3)
+    actualizar2.clicked.connect(funcion_actualizar2)
+    buscar1.clicked.connect(funcion_buscar1)
+    eliminar2.clicked.connect(funcion_eliminar2)
         
 def funcion_verLista(self):
     # Código a ejecutar cuando se hace clic en verLista
-    self.statusBar()
+    statusBar()
 
 def funcion_actualizar1(self):
-    self.statusBar()
+    statusBar()
     
 def funcion_eliminar1(self):
-    self.statusBar()
+    statusBar()
     
 def funcion_Regresarcurso(self):
-    self.statusBar()
+    statusBar()
         
 def funcion_refrescar(self):
-    self.statusBar()
+    statusBar()
         
         
 def funcion_buscar3(self):
-    self.statusBar()
+    statusBar()
         
 def funcion_actualizar2(self):
-    self.statusBar()
+    statusBar()
         
 def funcion_buscar1(self):
-    self.statusBar()
+    statusBar()
         
 def funcion_eliminar2(self):
-    self.statusBar()""" 
-    
+    statusBar()
+    """
 
 
 #codigo para subir y visualizar los archivos 
@@ -516,9 +520,9 @@ preguntas.botonPreguntasAbiertas.clicked.connect(gui_ventanaPreguntasAbiertas2)
 preguntas.botonPreguntasCerradas.clicked.connect(gui_ventanaPreguntasVF2)
 preguntas.botonPreguntasOpcionMultiple.clicked.connect(gui_ventanaPreguntasOM)
 Menu.botonExamenRecopilado.clicked.connect(gui_examenRecopilado)
-CursoAsignatura1.botonInforme.clicked.connect(gui_informeEstu)
+#CursoAsignatura1.botonInforme.clicked.connect(gui_informeEstu)
 
-# informeEstu.botonRegresarcurso.clicked.connect(r_informeEstu_CursoAsignatura) #boton regresar
+informeEstu.botonRegresarcurso.clicked.connect(r_informeEstu_CursoAsignatura) #boton regresar
 
 #botones de las preguntas 
 Evaluacion.botonAddA.clicked.connect(gui_ventanaPreguntasAbiertas2)

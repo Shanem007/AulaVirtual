@@ -151,7 +151,7 @@ font: 700 14pt &quot;Segoe UI&quot;;
             <string>Eliminar</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="Regresarcurso">
+          <widget class="QPushButton" name="botonRegresarcurso">
            <property name="geometry">
             <rect>
              <x>30</x>
@@ -196,7 +196,7 @@ font: 700 14pt &quot;Segoe UI&quot;;
             </rect>
            </property>
            <property name="currentIndex">
-            <number>2</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="ver">
             <widget class="QPushButton" name="refrescar">
@@ -216,7 +216,7 @@ font: 700 11pt &quot;Segoe UI&quot;;</string>
               <string>Refrescar</string>
              </property>
             </widget>
-            <widget class="QTableWidget" name="notasEstu">
+            <widget class="QTableWidget" name="tablaRegistroEstudiantes">
              <property name="geometry">
               <rect>
                <x>80</x>
@@ -231,9 +231,14 @@ font: 700 11pt &quot;Segoe UI&quot;;</string>
              <property name="verticalScrollBarPolicy">
               <enum>Qt::ScrollBarAsNeeded</enum>
              </property>
+             <row>
+              <property name="text">
+               <string>1</string>
+              </property>
+             </row>
              <column>
               <property name="text">
-               <string>Codigo</string>
+               <string>Cedula</string>
               </property>
               <property name="font">
                <font>
