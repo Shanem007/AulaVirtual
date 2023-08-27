@@ -145,12 +145,7 @@ def gui_Menu():
 def gui_CursoAsignatura():
     CursoAsignatura1.show()
     Menu.hide()
-    
-    
-def gui_informeEstu():
-    informeEstu.show()
-    
-
+            
 def gui_bienvenidaEstudiante():
     bienvenidaEstudiante.show()
 
@@ -202,6 +197,52 @@ def gui_ventanaPreguntasOM():
 
 def gui_examenRecopilado():
     examenRecopilado.show()
+    
+    
+    
+#Tabla informe de estudiantes       
+def gui_informeEstu(self):
+    informeEstu.show()
+    
+    """self.verLista.clicked.connect(self.funcion_verLista)
+    self.actualizar1.clicked.connect(self.funcion_actualizar1)
+    self.eliminar1.clicked.connect(self.funcion_eliminar1)
+    self.Regresarcurso.clicked.connect(self.funcion_Regresarcurso)
+        
+    self.refrescar.clicked.connect(self.funcion_refrescar)
+    self.buscar3.clicked.connect(self.funcion_buscar3)
+    self.actualizar2.clicked.connect(self.funcion_actualizar2)
+    self.buscar1.clicked.connect(self.funcion_buscar1)
+    self.eliminar2.clicked.connect(self.funcion_eliminar2)
+        
+def funcion_verLista(self):
+    # Código a ejecutar cuando se hace clic en verLista
+    self.statusBar()
+
+def funcion_actualizar1(self):
+    self.statusBar()
+    
+def funcion_eliminar1(self):
+    self.statusBar()
+    
+def funcion_Regresarcurso(self):
+    self.statusBar()
+        
+def funcion_refrescar(self):
+    self.statusBar()
+        
+        
+def funcion_buscar3(self):
+    self.statusBar()
+        
+def funcion_actualizar2(self):
+    self.statusBar()
+        
+def funcion_buscar1(self):
+    self.statusBar()
+        
+def funcion_eliminar2(self):
+    self.statusBar()""" 
     
 
 
