@@ -47,7 +47,7 @@ font: 700 10pt &quot;Segoe UI&quot;;
     <string notr="true">background-color: rgb(170, 255, 255);</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
+  <widget class="QPushButton" name="botonCancelarLengua">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -119,7 +119,7 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
   <zorder>label</zorder>
   <zorder>pushButton_2</zorder>
   <zorder>textEdit</zorder>
-  <zorder>pushButton</zorder>
+  <zorder>botonCancelarLengua</zorder>
   <zorder>label_2</zorder>
   <zorder>label_3</zorder>
  </widget>

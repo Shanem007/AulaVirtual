@@ -86,7 +86,7 @@
         <rect>
          <x>0</x>
          <y>140</y>
-         <width>351</width>
+         <width>711</width>
          <height>171</height>
         </rect>
        </property>
@@ -102,8 +102,8 @@
        <widget class="QLabel" name="label">
         <property name="geometry">
          <rect>
-          <x>60</x>
-          <y>20</y>
+          <x>230</x>
+          <y>10</y>
           <width>231</width>
           <height>31</height>
          </rect>
@@ -116,17 +116,30 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
          <string>SUBIR DOCUMENTO</string>
         </property>
        </widget>
-       <widget class="QTextEdit" name="textEdit_2">
+       <widget class="QPushButton" name="botonSubirDoc">
         <property name="geometry">
          <rect>
-          <x>90</x>
-          <y>80</y>
-          <width>191</width>
-          <height>71</height>
+          <x>260</x>
+          <y>60</y>
+          <width>171</width>
+          <height>81</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(96, 137, 191);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>img/doc.png</normaloff>img/doc.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>100</width>
+          <height>50</height>
+         </size>
         </property>
        </widget>
       </widget>
@@ -178,72 +191,38 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
 color: rgb(0, 0, 0);</string>
         </property>
        </widget>
-       <widget class="QDialogButtonBox" name="buttonBox">
+       <widget class="QPushButton" name="botonOk">
         <property name="geometry">
          <rect>
-          <x>290</x>
+          <x>220</x>
           <y>140</y>
-          <width>156</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(96, 137, 191);</string>
-        </property>
-        <property name="standardButtons">
-         <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-        </property>
-       </widget>
-      </widget>
-      <widget class="QFrame" name="frame_5">
-       <property name="geometry">
-        <rect>
-         <x>350</x>
-         <y>140</y>
-         <width>351</width>
-         <height>171</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(96, 137, 191);</string>
-       </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
-       </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QLabel" name="label_3">
-        <property name="geometry">
-         <rect>
-          <x>90</x>
-          <y>30</y>
-          <width>181</width>
-          <height>31</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">font: 700 18pt &quot;Segoe UI&quot;;</string>
-        </property>
-        <property name="text">
-         <string>EVALUACIONES</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="Acceder">
-        <property name="geometry">
-         <rect>
-          <x>140</x>
-          <y>100</y>
           <width>75</width>
           <height>24</height>
          </rect>
         </property>
         <property name="styleSheet">
          <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
-background-color: rgb(242, 169, 34);</string>
+background-color: rgb(96, 137, 191);</string>
         </property>
         <property name="text">
-         <string>ACCEDER</string>
+         <string>Ok </string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="botonRegresarPes">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>140</y>
+          <width>75</width>
+          <height>24</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
+background-color: rgb(96, 137, 191);</string>
+        </property>
+        <property name="text">
+         <string>Regresar</string>
         </property>
        </widget>
       </widget>

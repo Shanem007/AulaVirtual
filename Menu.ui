@@ -68,7 +68,7 @@ color: rgb(242, 144, 87);</string>
      <string>  MENÚ CURSOS</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="botonVer">
+   <widget class="QPushButton" name="botonEditar">
     <property name="geometry">
      <rect>
       <x>370</x>
@@ -82,7 +82,7 @@ color: rgb(242, 144, 87);</string>
 </string>
     </property>
     <property name="text">
-     <string>Ver</string>
+     <string>Editar</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -105,7 +105,7 @@ font: 700 22pt &quot;Segoe UI&quot;;</string>
      <string>Matemáticas</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="botonVer">
     <property name="geometry">
      <rect>
       <x>460</x>
@@ -118,10 +118,10 @@ font: 700 22pt &quot;Segoe UI&quot;;</string>
      <string notr="true">font: 700 12pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
-     <string>Editar</string>
+     <string>Ver</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="botonPreguntas">
     <property name="geometry">
      <rect>
       <x>550</x>
@@ -134,16 +134,62 @@ font: 700 22pt &quot;Segoe UI&quot;;</string>
      <string notr="true">font: 700 12pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
-     <string>Eliminar</string>
+     <string>preguntas</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonRegresarMenu">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>440</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 12pt &quot;Segoe UI&quot;;
+background-color: rgb(217, 167, 74);</string>
+    </property>
+    <property name="text">
+     <string>Regresar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botoncontenidoCargado">
+    <property name="geometry">
+     <rect>
+      <x>274</x>
+      <y>303</y>
+      <width>151</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>contenido cargado</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="botonExamenRecopilado">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>360</y>
+      <width>161</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>examen recopilado</string>
     </property>
    </widget>
    <zorder>label</zorder>
    <zorder>pushButton</zorder>
    <zorder>label_2</zorder>
-   <zorder>botonVer</zorder>
+   <zorder>botonEditar</zorder>
    <zorder>label_3</zorder>
-   <zorder>pushButton_4</zorder>
-   <zorder>pushButton_5</zorder>
+   <zorder>botonVer</zorder>
+   <zorder>botonPreguntas</zorder>
+   <zorder>botonRegresarMenu</zorder>
+   <zorder>botoncontenidoCargado</zorder>
+   <zorder>botonExamenRecopilado</zorder>
   </widget>
  </widget>
  <resources/>
