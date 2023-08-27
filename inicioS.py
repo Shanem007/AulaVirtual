@@ -22,7 +22,7 @@ CursoAsignatura1 = uic.loadUi("CursoAsignatura1.ui")
 bienvenidaEstudiante = uic.loadUi("bienvenidaEstudiante.ui")
 contenido = uic.loadUi("contenido.ui")
 Pestañas = uic.loadUi("Pestañas.ui") 
-informenotas = uic.loadUi("informenotas.ui") 
+
 CursosEst = uic.loadUi("CursosEst.ui")     
 mtricMate = uic.loadUi("mtricMate.ui")
 mtricLengua = uic.loadUi("mtricLengua.ui")
@@ -38,6 +38,7 @@ ventanaPreguntasVF2 = uic.loadUi("ventanaPreguntasVF2.ui")
 ventanaPreguntasOM = uic.loadUi("ventanaPreguntasOM.ui")
 preguntas = uic.loadUi("preguntas.ui")
 examenRecopilado = uic.loadUi("examenRecopilado.ui")
+informeEstu = uic.loadUi("informeEstu.ui")
 
 
 
@@ -142,7 +143,7 @@ def gui_Menu():
 def gui_CursoAsignatura():
     CursoAsignatura1.show()
     Menu.hide()
-
+            
 def gui_bienvenidaEstudiante():
     bienvenidaEstudiante.show()
 
@@ -152,8 +153,7 @@ def gui_contenido():
 def gui_Pestañas():
     Pestañas.show()
 
-def gui_informenotas():
-    informenotas.show()
+
 
 def gui_CursosEst():
     CursosEst.show()
@@ -195,6 +195,54 @@ def gui_ventanaPreguntasOM():
 
 def gui_examenRecopilado():
     examenRecopilado.show()
+    
+    
+    
+#Tabla informe de estudiantes       
+def gui_informeEstu(self):
+    informeEstu.show()
+    
+    """self.verLista.clicked.connect(self.funcion_verLista)
+    self.actualizar1.clicked.connect(self.funcion_actualizar1)
+    self.eliminar1.clicked.connect(self.funcion_eliminar1)
+    self.Regresarcurso.clicked.connect(self.funcion_Regresarcurso)
+        
+    self.refrescar.clicked.connect(self.funcion_refrescar)
+    self.buscar3.clicked.connect(self.funcion_buscar3)
+    self.actualizar2.clicked.connect(self.funcion_actualizar2)
+    self.buscar1.clicked.connect(self.funcion_buscar1)
+    self.eliminar2.clicked.connect(self.funcion_eliminar2)
+        
+def funcion_verLista(self):
+    # Código a ejecutar cuando se hace clic en verLista
+    self.statusBar()
+
+def funcion_actualizar1(self):
+    self.statusBar()
+    
+def funcion_eliminar1(self):
+    self.statusBar()
+    
+def funcion_Regresarcurso(self):
+    self.statusBar()
+        
+def funcion_refrescar(self):
+    self.statusBar()
+        
+        
+def funcion_buscar3(self):
+    self.statusBar()
+        
+def funcion_actualizar2(self):
+    self.statusBar()
+        
+def funcion_buscar1(self):
+    self.statusBar()
+        
+def funcion_eliminar2(self):
+    self.statusBar()""" 
+    
+
 
 #codigo para subir y visualizar los archivos 
 
@@ -283,8 +331,10 @@ def r_Pestañas_CursoAsignatura():
     Pestañas.hide()
     CursoAsignatura1.show()
 
-def r_informenotas_CursoAsignatura():
-    informenotas.hide()
+
+def r_informeEstu_CursoAsignatura():
+    informeEstu.hide()
+
 
 def r_CursoAsignatura_Menu():
     CursoAsignatura1.hide()
@@ -433,10 +483,10 @@ login_correcto.botonEntendido.clicked.connect(gui_Menu)
 Menu.botonEditar.clicked.connect(gui_CursoAsignatura)
 CursoAsignatura1.botonContenido.clicked.connect(gui_contenido)
 CursoAsignatura1.botonDoc.clicked.connect(gui_Pestañas)
-CursoAsignatura1.botonInforme.clicked.connect(gui_informenotas)
+
 contenido.botonCancelar.clicked.connect(r_guiContenido_guiCursoAsignatura)
 Pestañas.botonOk.clicked.connect(r_Pestañas_CursoAsignatura) #boton regresar
-informenotas.botonRegresarNotas.clicked.connect(r_informenotas_CursoAsignatura) #boton regresar
+
 CursoAsignatura1.botoRegresarCurso.clicked.connect(gui_Menu)
 Menu.botonRegresarMenu.clicked.connect(r_Menu_login) #boton regresar
 bienvenidaEstudiante.botonIrCurso.clicked.connect(gui_CursosEst)
@@ -466,6 +516,9 @@ preguntas.botonPreguntasAbiertas.clicked.connect(gui_ventanaPreguntasAbiertas2)
 preguntas.botonPreguntasCerradas.clicked.connect(gui_ventanaPreguntasVF2)
 preguntas.botonPreguntasOpcionMultiple.clicked.connect(gui_ventanaPreguntasOM)
 Menu.botonExamenRecopilado.clicked.connect(gui_examenRecopilado)
+CursoAsignatura1.botonInforme.clicked.connect(gui_informeEstu)
+
+# informeEstu.botonRegresarcurso.clicked.connect(r_informeEstu_CursoAsignatura) #boton regresar
 
 #botones de las preguntas 
 Evaluacion.botonAddA.clicked.connect(gui_ventanaPreguntasAbiertas2)
