@@ -196,7 +196,7 @@ font: 700 14pt &quot;Segoe UI&quot;;
             </rect>
            </property>
            <property name="currentIndex">
-            <number>2</number>
+            <number>1</number>
            </property>
            <widget class="QWidget" name="ver">
             <widget class="QPushButton" name="refrescar">
@@ -233,7 +233,7 @@ font: 700 11pt &quot;Segoe UI&quot;;</string>
              </property>
              <column>
               <property name="text">
-               <string>Codigo</string>
+               <string>CI</string>
               </property>
               <property name="font">
                <font>
@@ -446,7 +446,7 @@ font: 700 11pt &quot;Segoe UI&quot;;</string>
              </property>
              <column>
               <property name="text">
-               <string>Codigo</string>
+               <string>CI</string>
               </property>
               <property name="font">
                <font>
