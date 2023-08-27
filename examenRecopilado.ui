@@ -51,7 +51,7 @@ color: rgb(242, 144, 87);</string>
      <string>Examen</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="botonAgregarPreguntaOM">
+   <widget class="QPushButton" name="botonRegresarExamenRecopilado">
     <property name="geometry">
      <rect>
       <x>490</x>
@@ -81,9 +81,9 @@ background-color: rgb(217, 167, 74);</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>120</y>
-      <width>361</width>
+      <x>40</x>
+      <y>110</y>
+      <width>571</width>
       <height>61</height>
      </rect>
     </property>
@@ -98,9 +98,9 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>40</x>
       <y>260</y>
-      <width>401</width>
+      <width>591</width>
       <height>61</height>
      </rect>
     </property>
@@ -141,9 +141,9 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>40</x>
       <y>370</y>
-      <width>401</width>
+      <width>601</width>
       <height>61</height>
      </rect>
     </property>

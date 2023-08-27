@@ -38,6 +38,8 @@ ventanaPreguntasOM = uic.loadUi("ventanaPreguntasOM.ui")
 preguntas = uic.loadUi("preguntas.ui")
 examenRecopilado = uic.loadUi("examenRecopilado.ui")
 informeEstu = uic.loadUi("informeEstu.ui")
+mensajeContenidoSubido = uic.loadUi("mensajeContenidoSubido.ui")
+mensajeEnlaceSubido = uic.loadUi("mensajeEnlaceSubido.ui")
 
 
 
@@ -55,7 +57,7 @@ def agregar_usuario():
     Clave = registro.Clave.text()   #.text -->cuando usamos un line edit en pyqt6
     VerificarClave = registro.VerificarClave.text()
     
-    
+
     if Clave != VerificarClave:                              # muestra un aviso que las contraseñas no coinciden 
         registro.Aviso.setText("La contraseña no coincide")  # .setText--> cuando usamos un label
     else:
@@ -151,8 +153,6 @@ def gui_contenido():
 def gui_Pestañas():
     Pestañas.show()
 
-
-
 def gui_CursosEst():
     CursosEst.show()
     login.hide()
@@ -193,6 +193,13 @@ def gui_ventanaPreguntasOM():
 
 def gui_examenRecopilado():
     examenRecopilado.show()
+
+def gui_mensajeContenidoSubido():
+    mensajeContenidoSubido.show()
+    contenido.hide()
+
+def gui_mesajeEnlaceSubido():
+    mensajeEnlaceSubido.show()
     
 
 # Administración de estudiantes
@@ -321,10 +328,29 @@ def cargar_archivo():
         conexion = sqlite3.connect("database.db")
         cursor = conexion.cursor()
         cursor.execute("INSERT INTO archivos (nombre_archivo, ruta_archivo, tipo_archivo) VALUES (?, ?, ?)", (nombre_archivo, archivo, "Tipo del archivo"))
+
         conexion.commit()
         conexion.close()
 
         mensajeArchivo.show()
+
+
+def guardar_enlace_en_db():
+    enlace = Pestañas.ingresarEnlace.toPlainText()
+
+    # Conectar a la base de datos
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
+
+    # Insertar el enlace en la columna "enlace" de la tabla "enlace"
+    cursor.execute("INSERT INTO enlace (enlace) VALUES (?)", (enlace,))
+
+    # Guardar los cambios y cerrar la conexión
+    conexion.commit()
+    conexion.close()
+    mensajeEnlaceSubido.show()
+
+
 #funcion para ver archivo subido 
 def mostrar_contenido_archivo(nombre_archivo):
     conexion = sqlite3.connect("database.db")
@@ -405,6 +431,20 @@ def r_ventanaPreguntasVF_Evaluacion():
 def r_pestañas_CursoAsignatura():
     Pestañas.hide()
 
+def r_examenRecopilado_Menu():
+    Menu.show()
+    examenRecopilado.hide()
+
+def r_preguntas_Menu():
+    Menu.show()
+    preguntas.hide()
+
+def r_mensajeContenidoSubido_cursoAsignatura1():
+    mensajeContenidoSubido.hide()
+
+def r_mensajeEnlaceSubido():
+    mensajeEnlaceSubido.hide()
+
 
 
 
@@ -473,15 +513,51 @@ def gui_examenRecopilado():
     cursor.execute("SELECT pregunta FROM preguntasExamen WHERE tipo = 'Pregunta Abierta'")
     preguntas_abiertas = cursor.fetchall()
 
+    # Recuperar las preguntas de tipo "Pregunta Cerrada"
+    cursor.execute("SELECT pregunta FROM preguntasExamen WHERE tipo = 'Pregunta Cerrada'")
+    preguntas_cerradas = cursor.fetchall()
+
+    # Recuperar las preguntas de tipo "Pregunta Opción Múltiple"
+    cursor.execute("SELECT pregunta, opciones FROM preguntasExamen WHERE tipo = 'Pregunta de Opción Múltiple'")
+    preguntas_opcion_multiple = cursor.fetchall()
+
     # Cerrar la conexión
     conexion.close()
 
     # Mostrar las preguntas en la ventana examenRecopilado
     examenRecopilado.label_3.setText("\n".join([pregunta[0] for pregunta in preguntas_abiertas]))
+
+    examenRecopilado.label_4.setText("\n".join([pregunta[0] for pregunta in preguntas_cerradas]))
+
+    examenRecopilado.label_5.setText("\n".join([pregunta[0] for pregunta in preguntas_opcion_multiple]))
+
+    # Mostrar las preguntas de opción múltiple en el label_5 y las opciones en el comboBoxRespuesta
+    preguntas_y_opciones = [f"{pregunta[0]}: {pregunta[1]}" for pregunta in preguntas_opcion_multiple]
+    examenRecopilado.label_5.setText("\n".join(preguntas_y_opciones))
+
+    examenRecopilado.comboBoxRespuesta.clear()  # Limpiar comboBoxRespuesta antes de agregar nuevas opciones
+    # Agregar las opciones al comboBoxRespuesta
+    for opciones in [pregunta[1].split(',') for pregunta in preguntas_opcion_multiple]:
+        examenRecopilado.comboBoxRespuesta.addItems(opciones)
+
     # Mostrar la ventana examenRecopilado
     examenRecopilado.show()
 
 
+def guardar_contenido_en_db():
+    titulo = contenido.titulo.toPlainText()
+    descripcion = contenido.descripcion.toPlainText()
+
+    # Conectar a la base de datos
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
+
+    # Insertar los valores en la tabla "contenido"
+    cursor.execute("INSERT INTO contenido (titulo, descripcion) VALUES (?, ?)", (titulo, descripcion))
+
+    # Guardar los cambios y cerrar la conexión
+    conexion.commit()
+    conexion.close()
 
 
 
@@ -544,20 +620,28 @@ preguntas.botonPreguntasCerradas.clicked.connect(gui_ventanaPreguntasVF2)
 preguntas.botonPreguntasOpcionMultiple.clicked.connect(gui_ventanaPreguntasOM)
 Menu.botonExamenRecopilado.clicked.connect(gui_examenRecopilado)
 CursoAsignatura1.botonInforme.clicked.connect(gui_informeEstu)
-
 informeEstu.botonRegresarcurso.clicked.connect(r_informeEstu_CursoAsignatura) #boton regresar
+examenRecopilado.botonRegresarExamenRecopilado.clicked.connect(r_examenRecopilado_Menu)
 
 #botones de las preguntas 
 Evaluacion.botonAddA.clicked.connect(gui_ventanaPreguntasAbiertas2)
 ventanaPreguntasAbiertas2.botonAgregarPreguntaAbierta.clicked.connect(agregar_pregunta_abierta)
 ventanaPreguntasVF2.botonAgregarPreguntaVF.clicked.connect(agregar_pregunta_vf)  # Agregar pregunta cerrada
 ventanaPreguntasOM.botonAgregarPreguntaOM.clicked.connect(agregar_pregunta_om)
-
+preguntas.botonRegresarPreguntas.clicked.connect(r_preguntas_Menu)
 #Botones administracion de estudiantes 
 # Agrega un botón o un evento que llame a la función cargar_informe_estudiantes
 informeEstu.verLista.clicked.connect(cargar_informe_estudiantes)
 informeEstu.botonActualizar.clicked.connect(actualizar_registro_estudiante)
 informeEstu.botonEliminar.clicked.connect(eliminar_registro_estudiante)
+contenido.botonAddContenido.clicked.connect(guardar_contenido_en_db)
+contenido.botonAddContenido.clicked.connect(gui_mensajeContenidoSubido)
+mensajeContenidoSubido.botonEntendidoContenido.clicked.connect(r_mensajeContenidoSubido_cursoAsignatura1)
+# Conectar la función guardar_enlace_en_db al evento del botón botonGuardarEnlace
+Pestañas.botonGuardarEnlace.clicked.connect(guardar_enlace_en_db)
+
+mensajeEnlaceSubido.botonEntendidoEnlace.clicked.connect(r_mensajeEnlaceSubido)
+
 
 #ejecutable
 principal.show()
