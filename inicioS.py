@@ -22,7 +22,6 @@ CursoAsignatura1 = uic.loadUi("CursoAsignatura1.ui")
 bienvenidaEstudiante = uic.loadUi("bienvenidaEstudiante.ui")
 contenido = uic.loadUi("contenido.ui")
 Pestañas = uic.loadUi("Pestañas.ui") 
-
 CursosEst = uic.loadUi("CursosEst.ui")     
 mtricMate = uic.loadUi("mtricMate.ui")
 mtricLengua = uic.loadUi("mtricLengua.ui")
@@ -56,8 +55,7 @@ def agregar_usuario():
     Clave = registro.Clave.text()   #.text -->cuando usamos un line edit en pyqt6
     VerificarClave = registro.VerificarClave.text()
     
-
-
+    
     if Clave != VerificarClave:                              # muestra un aviso que las contraseñas no coinciden 
         registro.Aviso.setText("La contraseña no coincide")  # .setText--> cuando usamos un label
     else:
@@ -271,52 +269,6 @@ def eliminar_registro_estudiante():
 
 def gui_informeEstu():
     informeEstu.show()
-
-""""    
-#Tabla informe de estudiantes       
-def gui_informeEstu(self):
-    informeEstu.show()
-    
-    verLista.clicked.connect(funcion_verLista)
-    actualizar1.clicked.connect(funcion_actualizar1)
-    eliminar1.clicked.connect(funcion_eliminar1)
-    Regresarcurso.clicked.connect(funcion_Regresarcurso)
-        
-    refrescar.clicked.connect(funcion_refrescar)
-    buscar3.clicked.connect(funcion_buscar3)
-    actualizar2.clicked.connect(funcion_actualizar2)
-    buscar1.clicked.connect(funcion_buscar1)
-    eliminar2.clicked.connect(funcion_eliminar2)
-        
-def funcion_verLista(self):
-    # Código a ejecutar cuando se hace clic en verLista
-    statusBar()
-
-def funcion_actualizar1(self):
-    statusBar()
-    
-def funcion_eliminar1(self):
-    statusBar()
-    
-def funcion_Regresarcurso(self):
-    statusBar()
-        
-def funcion_refrescar(self):
-    statusBar()
-        
-        
-def funcion_buscar3(self):
-    statusBar()
-        
-def funcion_actualizar2(self):
-    statusBar()
-        
-def funcion_buscar1(self):
-    statusBar()
-        
-def funcion_eliminar2(self):
-    statusBar()
-    """
 
 
 #codigo para subir y visualizar los archivos 
