@@ -151,7 +151,7 @@ font: 700 14pt &quot;Segoe UI&quot;;
             <string>Eliminar</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="Regresar">
+          <widget class="QPushButton" name="Regresarcurso">
            <property name="geometry">
             <rect>
              <x>30</x>
