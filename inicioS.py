@@ -207,7 +207,6 @@ def gui_mesajeEnlaceSubido():
 # Importa el módulo relacionado con los widgets y la base de datos de PyQt6
 from PyQt6.QtWidgets import QTableWidgetItem
 
-
 def cargar_informe_estudiantes():
     # Conexión a la base de datos
     conexion = sqlite3.connect("database.db")
@@ -231,46 +230,87 @@ def cargar_informe_estudiantes():
             item = QTableWidgetItem(str(cell_data))
             informeEstu.tablaRegistroEstudiantes.setItem(row_idx, col_idx, item)
 
-# Agrega esta función para actualizar un registro de estudiante
+# Boton que permite actualizar la tabla de estudiantes de la base de datos con la información de la tabla de la interfaz modificada
 def actualizar_registro_estudiante():
-    # Recuperar los valores de los campos
-    Cedula = registro.CorreoInstitucional.toPlainText()
-    Nombre = registro.Nombre.toPlainText()
-    Apellido = registro.Apellido.toPlainText()
-    NombreUsuario = registro.NombreUsuario.toPlainText()
-
     # Conexión a la base de datos
     conexion = sqlite3.connect("database.db")
     cursor = conexion.cursor()
 
-    # Actualizar los datos en la tabla RegistroEstudiante
-    cursor.execute("UPDATE RegistroEstudiante SET Nombre = ?, Apellido = ?, NombreUsuario = ? WHERE Cedula = ?",
-                   (Nombre, Apellido, NombreUsuario, Cedula))
+    # Obtener los datos de la tabla de la interfaz
+    data = []
+    for row_idx in range(informeEstu.tablaRegistroEstudiantes.rowCount()):
+        row = []
+        for col_idx in range(informeEstu.tablaRegistroEstudiantes.columnCount()):
+            item = informeEstu.tablaRegistroEstudiantes.item(row_idx, col_idx)
+            if item is not None:
+                row.append(item.text())
+            else:
+                row.append("")
+        data.append(row)
+
+    # Actualizar los datos en la base de datos
+    for row_data in data:
+        cedula = row_data[0]    # Cedula
+        nombre = row_data[1]    # Nombre
+        apellido = row_data[2]  # Apellido
+        cursor.execute("UPDATE RegistroEstudiante SET Nombre = ?, Apellido = ? WHERE Cedula = ?",
+                       (nombre, apellido, cedula))
 
     # Guardar los cambios
     conexion.commit()
+
     # Cerrar la conexión
     conexion.close()
-    # Actualizar la tabla informeEstu con los datos actualizados
-    cargar_informe_estudiantes()
 
-# Agrega esta función para eliminar un registro de estudiante
+
+# Función para eliminar un registro seleccionado de la tabla
 def eliminar_registro_estudiante():
-    Cedula = registro.CorreoInstitucional.toPlainText()
+    # Obtener el índice de la fila seleccionada
+    row_idx = informeEstu.tablaRegistroEstudiantes.currentRow()
+
+    # Obtener la cédula de la fila seleccionada
+    cedula = informeEstu.tablaRegistroEstudiantes.item(row_idx, 0).text()
 
     # Conexión a la base de datos
     conexion = sqlite3.connect("database.db")
     cursor = conexion.cursor()
 
-    # Eliminar la fila de RegistroEstudiante con la Cedula seleccionada
-    cursor.execute("DELETE FROM RegistroEstudiante WHERE Cedula = ?", (Cedula,))
+    # Eliminar el registro de la base de datos
+    cursor.execute("DELETE FROM RegistroEstudiante WHERE Cedula = ?", (cedula,))
 
     # Guardar los cambios
     conexion.commit()
+
     # Cerrar la conexión
     conexion.close()
-    # Actualizar la tabla informeEstu después de eliminar
-    cargar_informe_estudiantes()
+
+    # Eliminar la fila de la tabla
+    informeEstu.tablaRegistroEstudiantes.removeRow(row_idx)
+
+# Conexión de la señal textChanged a la función de búsqueda en tiempo real
+def buscar_en_tiempo_real(texto_busqueda):
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
+
+    cursor.execute("SELECT Cedula, Nombre, Apellido FROM RegistroEstudiante WHERE Cedula LIKE ? OR Nombre LIKE ? OR Apellido LIKE ?",('%' + texto_busqueda + '%', '%' + texto_busqueda + '%', '%' + texto_busqueda + '%'))
+    data = cursor.fetchall()
+
+    conexion.close()
+
+    informeEstu.tablaRegistroEstudiantes.clearContents()
+    informeEstu.tablaRegistroEstudiantes.setRowCount(0)
+
+    for row_idx, row_data in enumerate(data):
+        informeEstu.tablaRegistroEstudiantes.insertRow(row_idx)
+        for col_idx, cell_data in enumerate(row_data):
+            item = QTableWidgetItem(str(cell_data))
+            informeEstu.tablaRegistroEstudiantes.setItem(row_idx, col_idx, item)
+
+# Conexión de la señal textChanged a la función de búsqueda en tiempo real
+informeEstu.busqueda.textChanged.connect(lambda texto: buscar_en_tiempo_real(texto))
+
+
+    
 
 
 

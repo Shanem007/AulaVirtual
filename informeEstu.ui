@@ -53,7 +53,7 @@
          <widget class="QLabel" name="label">
           <property name="geometry">
            <rect>
-            <x>180</x>
+            <x>190</x>
             <y>0</y>
             <width>411</width>
             <height>51</height>
@@ -84,7 +84,7 @@ color: rgb(242, 144, 87);</string>
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>191</width>
+            <width>181</width>
             <height>471</height>
            </rect>
           </property>
@@ -100,9 +100,9 @@ color: rgb(242, 144, 87);</string>
           <widget class="QPushButton" name="verLista">
            <property name="geometry">
             <rect>
-             <x>30</x>
-             <y>70</y>
-             <width>121</width>
+             <x>10</x>
+             <y>40</y>
+             <width>161</width>
              <height>41</height>
             </rect>
            </property>
@@ -112,15 +112,15 @@ font: 700 14pt &quot;Segoe UI&quot;;
 </string>
            </property>
            <property name="text">
-            <string>Ver Lista</string>
+            <string>Actualizar Tabla</string>
            </property>
           </widget>
           <widget class="QPushButton" name="botonActualizar">
            <property name="geometry">
             <rect>
-             <x>30</x>
-             <y>170</y>
-             <width>121</width>
+             <x>10</x>
+             <y>110</y>
+             <width>161</width>
              <height>41</height>
             </rect>
            </property>
@@ -130,15 +130,15 @@ font: 700 14pt &quot;Segoe UI&quot;;
 </string>
            </property>
            <property name="text">
-            <string>Actualizar</string>
+            <string>Guardar Cambios</string>
            </property>
           </widget>
           <widget class="QPushButton" name="botonEliminar">
            <property name="geometry">
             <rect>
-             <x>30</x>
-             <y>260</y>
-             <width>121</width>
+             <x>10</x>
+             <y>180</y>
+             <width>161</width>
              <height>41</height>
             </rect>
            </property>
@@ -148,7 +148,7 @@ font: 700 14pt &quot;Segoe UI&quot;;
 </string>
            </property>
            <property name="text">
-            <string>Eliminar</string>
+            <string>Eliminar Registro</string>
            </property>
           </widget>
           <widget class="QPushButton" name="botonRegresarcurso">
@@ -199,29 +199,12 @@ font: 700 14pt &quot;Segoe UI&quot;;
             <number>0</number>
            </property>
            <widget class="QWidget" name="ver">
-            <widget class="QPushButton" name="refrescar">
-             <property name="geometry">
-              <rect>
-               <x>470</x>
-               <y>430</y>
-               <width>81</width>
-               <height>31</height>
-              </rect>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: rgb(255, 142, 76);
-font: 700 11pt &quot;Segoe UI&quot;;</string>
-             </property>
-             <property name="text">
-              <string>Refrescar</string>
-             </property>
-            </widget>
             <widget class="QTableWidget" name="tablaRegistroEstudiantes">
              <property name="geometry">
               <rect>
-               <x>80</x>
-               <y>50</y>
-               <width>391</width>
+               <x>10</x>
+               <y>110</y>
+               <width>551</width>
                <height>361</height>
               </rect>
              </property>
@@ -334,9 +317,9 @@ font: 700 11pt &quot;Segoe UI&quot;;</string>
             <widget class="QLabel" name="label_2">
              <property name="geometry">
               <rect>
-               <x>190</x>
+               <x>120</x>
                <y>10</y>
-               <width>159</width>
+               <width>381</width>
                <height>32</height>
               </rect>
              </property>
@@ -345,10 +328,23 @@ font: 700 11pt &quot;Segoe UI&quot;;</string>
 color: rgb(255, 255, 255);</string>
              </property>
              <property name="text">
-              <string>ESTUDIANTES</string>
+              <string>Lista de estudiantes registrados</string>
              </property>
              <property name="alignment">
               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+            <widget class="QLineEdit" name="busqueda">
+             <property name="geometry">
+              <rect>
+               <x>10</x>
+               <y>61</y>
+               <width>551</width>
+               <height>31</height>
+              </rect>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
              </property>
             </widget>
            </widget>
