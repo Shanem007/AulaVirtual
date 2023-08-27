@@ -199,7 +199,78 @@ def gui_examenRecopilado():
 
 # Administración de estudiantes
 
+# Importa el módulo relacionado con los widgets y la base de datos de PyQt6
+from PyQt6.QtWidgets import QTableWidgetItem
 
+
+def cargar_informe_estudiantes():
+    # Conexión a la base de datos
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
+
+    # Consulta a la base de datos para obtener los datos
+    cursor.execute("SELECT Cedula, Nombre, Apellido FROM RegistroEstudiante")
+    data = cursor.fetchall()
+
+    # Cerrar la conexión
+    conexion.close()
+
+    # Limpiar la tabla antes de cargar nuevos datos
+    informeEstu.tablaRegistroEstudiantes.clearContents()
+    informeEstu.tablaRegistroEstudiantes.setRowCount(0)
+
+    # Cargar los datos en la tabla
+    for row_idx, row_data in enumerate(data):
+        informeEstu.tablaRegistroEstudiantes.insertRow(row_idx)
+        for col_idx, cell_data in enumerate(row_data):
+            item = QTableWidgetItem(str(cell_data))
+            informeEstu.tablaRegistroEstudiantes.setItem(row_idx, col_idx, item)
+
+# Agrega esta función para actualizar un registro de estudiante
+def actualizar_registro_estudiante():
+    # Recuperar los valores de los campos
+    Cedula = registro.CorreoInstitucional.toPlainText()
+    Nombre = registro.Nombre.toPlainText()
+    Apellido = registro.Apellido.toPlainText()
+    NombreUsuario = registro.NombreUsuario.toPlainText()
+
+    # Conexión a la base de datos
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
+
+    # Actualizar los datos en la tabla RegistroEstudiante
+    cursor.execute("UPDATE RegistroEstudiante SET Nombre = ?, Apellido = ?, NombreUsuario = ? WHERE Cedula = ?",
+                   (Nombre, Apellido, NombreUsuario, Cedula))
+
+    # Guardar los cambios
+    conexion.commit()
+    # Cerrar la conexión
+    conexion.close()
+    # Actualizar la tabla informeEstu con los datos actualizados
+    cargar_informe_estudiantes()
+
+# Agrega esta función para eliminar un registro de estudiante
+def eliminar_registro_estudiante():
+    Cedula = registro.CorreoInstitucional.toPlainText()
+
+    # Conexión a la base de datos
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
+
+    # Eliminar la fila de RegistroEstudiante con la Cedula seleccionada
+    cursor.execute("DELETE FROM RegistroEstudiante WHERE Cedula = ?", (Cedula,))
+
+    # Guardar los cambios
+    conexion.commit()
+    # Cerrar la conexión
+    conexion.close()
+    # Actualizar la tabla informeEstu después de eliminar
+    cargar_informe_estudiantes()
+
+
+
+def gui_informeEstu():
+    informeEstu.show()
 
 """"    
 #Tabla informe de estudiantes       
@@ -520,7 +591,7 @@ preguntas.botonPreguntasAbiertas.clicked.connect(gui_ventanaPreguntasAbiertas2)
 preguntas.botonPreguntasCerradas.clicked.connect(gui_ventanaPreguntasVF2)
 preguntas.botonPreguntasOpcionMultiple.clicked.connect(gui_ventanaPreguntasOM)
 Menu.botonExamenRecopilado.clicked.connect(gui_examenRecopilado)
-#CursoAsignatura1.botonInforme.clicked.connect(gui_informeEstu)
+CursoAsignatura1.botonInforme.clicked.connect(gui_informeEstu)
 
 informeEstu.botonRegresarcurso.clicked.connect(r_informeEstu_CursoAsignatura) #boton regresar
 
@@ -530,6 +601,11 @@ ventanaPreguntasAbiertas2.botonAgregarPreguntaAbierta.clicked.connect(agregar_pr
 ventanaPreguntasVF2.botonAgregarPreguntaVF.clicked.connect(agregar_pregunta_vf)  # Agregar pregunta cerrada
 ventanaPreguntasOM.botonAgregarPreguntaOM.clicked.connect(agregar_pregunta_om)
 
+#Botones administracion de estudiantes 
+# Agrega un botón o un evento que llame a la función cargar_informe_estudiantes
+informeEstu.verLista.clicked.connect(cargar_informe_estudiantes)
+informeEstu.botonActualizar.clicked.connect(actualizar_registro_estudiante)
+informeEstu.botonEliminar.clicked.connect(eliminar_registro_estudiante)
 
 #ejecutable
 principal.show()
