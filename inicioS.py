@@ -4,8 +4,6 @@ import sqlite3
 from PyQt6.QtWidgets import QFileDialog  #libreria para subir archivos 
 from PyQt6.QtCore import QUrl    #libreria para ver archivos
 from PyQt6.QtGui import QDesktopServices #libreria para ver archivos
-from PyQt6 import QtWidgets
-
 
 
 
@@ -42,7 +40,7 @@ preguntas = uic.loadUi("preguntas.ui")
 examenRecopilado = uic.loadUi("examenRecopilado.ui")
 informeEstu = uic.loadUi("informeEstu.ui")
 
-examenRecopilado =[]
+
 
 def gui_login():
     login.show()
@@ -386,68 +384,88 @@ def r_pestañas_CursoAsignatura():
 
 
 #examen 
-# Agregar pregunta abierta al examen recopilado
+
 def agregar_pregunta_abierta():
     pregunta_abierta = ventanaPreguntasAbiertas2.textEditPreguntaAbierta.toPlainText()
-    examenRecopilado.append(("Pregunta Abierta", pregunta_abierta))
+    
+    # Conectar a la base de datos
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
+    
+    # Insertar la pregunta en la tabla del examen
+    cursor.execute("INSERT INTO preguntasExamen (tipo, pregunta) VALUES (?, ?)", ("Pregunta Abierta", pregunta_abierta))
+    
+    # Guardar los cambios y cerrar la conexión
+    conexion.commit()
+    conexion.close()
+    
     ventanaPreguntasAbiertas2.hide()
 
-# Agregar pregunta de opción múltiple al examen recopilado
 def agregar_pregunta_vf():
     pregunta_vf = ventanaPreguntasVF2.textEditPreguntaVF.toPlainText()
     respuesta_correcta = "Verdadero" if ventanaPreguntasVF2.radioButtonVerdadero.isChecked() else "Falso"
-    examenRecopilado.append(("Pregunta Cerrada", pregunta_vf, ["Verdadero", "Falso"], respuesta_correcta))
+    
+    # Conectar a la base de datos
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
+    
+    # Insertar la pregunta en la tabla del examen
+    cursor.execute("INSERT INTO preguntasExamen (tipo, pregunta, opciones, respuesta_correcta) VALUES (?, ?, ?, ?)", ("Pregunta Cerrada", pregunta_vf, "Verdadero,Falso", respuesta_correcta))
+    
+    # Guardar los cambios y cerrar la conexión
+    conexion.commit()
+    conexion.close()
+    
     ventanaPreguntasVF2.hide()
 
 def agregar_pregunta_om():
     pregunta_om = ventanaPreguntasOM.textEditPreguntaOM.toPlainText()
     opciones_texto = ventanaPreguntasOM.textEditOpciones.toPlainText()
     opciones = opciones_texto.split(',')
-
-    # Obtener la respuesta correcta del ComboBox
     respuesta_correcta = ventanaPreguntasOM.comboBoxRespuesta.currentText()
-
-    examenRecopilado.append(("Pregunta de Opción Múltiple", pregunta_om, opciones, respuesta_correcta))
+    
+    # Conectar a la base de datos
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
+    
+    # Insertar la pregunta en la tabla del examen
+    cursor.execute("INSERT INTO preguntasExamen (tipo, pregunta, opciones, respuesta_correcta) VALUES (?, ?, ?, ?)", ("Pregunta de Opción Múltiple", pregunta_om, opciones_texto, respuesta_correcta))
+    
+    # Guardar los cambios y cerrar la conexión
+    conexion.commit()
+    conexion.close()
+    
     ventanaPreguntasOM.hide()
 
-    
-# Mostrar el examen recopilado
+def gui_examenRecopilado():
+    # Conexión a la base de datos
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
 
-def show_exam():
-    exam_window = uic.loadUi("examenRecopilado.ui")  # Cargar la interfaz de usuario
-    
-    layout = QtWidgets.QVBoxLayout(exam_window)  # Crear un QVBoxLayout en la ventana
+    # Recuperar las preguntas de la base de datos (por ejemplo, las preguntas de tipo "Pregunta Abierta")
+    cursor.execute("SELECT pregunta FROM preguntasExamen WHERE tipo = 'Pregunta Abierta'")
+    preguntas_abiertas = cursor.fetchall()
 
-    for i, question in enumerate(examenRecopilado):
-        question_type, question_text, *options = question
-        
-        if question_type == "Pregunta Abierta":
-            label = QtWidgets.QLabel(f"{i+1}. Pregunta Abierta: {question_text}", exam_window)
-            layout.addWidget(label)
-            text_edit = QtWidgets.QTextEdit(exam_window)
-            layout.addWidget(text_edit)
+    # Cerrar la conexión
+    conexion.close()
 
-        elif question_type == "Pregunta Cerrada":
-            label = QtWidgets.QLabel(f"{i+1}. Pregunta Cerrada: {question_text}", exam_window)
-            layout.addWidget(label)
-            # Agregar radio buttons aquí
+    # Mostrar las preguntas en la ventana examenRecopilado
+    examenRecopilado.label_3.setText("\n".join([pregunta[0] for pregunta in preguntas_abiertas]))
+    # Mostrar la ventana examenRecopilado
+    examenRecopilado.show()
 
-        elif question_type == "Pregunta de Opción Múltiple":
-            label = QtWidgets.QLabel(f"{i+1}. Pregunta de Opción Múltiple: {question_text}", exam_window)
-            layout.addWidget(label)
-            # Agregar combo box aquí
-            
-    exam_window.setLayout(layout)  # Asignar el layout a la ventana
-    exam_window.show()
 
-# ...
 
-# Enlaza las funciones a los botones
-Evaluacion.botonAddA.clicked.connect(gui_ventanaPreguntasAbiertas2)
-ventanaPreguntasAbiertas2.botonAgregarPreguntaAbierta.clicked.connect(agregar_pregunta_abierta)
-ventanaPreguntasVF2.botonAgregarPreguntaVF.clicked.connect(agregar_pregunta_vf)  # Agregar pregunta cerrada
-ventanaPreguntasOM.botonAgregarPreguntaOM.clicked.connect(agregar_pregunta_om)
-Menu.botonExamenRecopilado.clicked.connect(show_exam)
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -489,10 +507,10 @@ CursoAsignatura1.botonEvaluacion.clicked.connect(gui_Evaluacion)
 Evaluacion.botonAddVF.clicked.connect(gui_ventanaPreguntasVF)
 Evaluacion.botonAddA.clicked.connect(gui_ventanaPreguntasAbiertas)
 Evaluacion.botonRegresarEval.clicked.connect(r_Evaluacion_CursoAsignatura)
-ventanaPreguntasVF.botonRegresarVF.clicked.connect(r_ventanaPreguntasVF_Evaluacion)
-ventanaPreguntasAbiertas.botonRegresarA.clicked.connect(r_ventanaPreguntasAbiertas_Evaluacion)
+ventanaPreguntasVF.botonRegresarVF.clicked.connect(r_ventanaPreguntasVF_Evaluacion) #boton regresar
+ventanaPreguntasAbiertas.botonRegresarA.clicked.connect(r_ventanaPreguntasAbiertas_Evaluacion) #boton regresar
 Menu.botoncontenidoCargado.clicked.connect(gui_contenidoCargado)
-Pestañas.botonRegresarPes.clicked.connect(r_pestañas_CursoAsignatura)
+Pestañas.botonRegresarPes.clicked.connect(r_pestañas_CursoAsignatura) #boton regresar
 Menu.botonPreguntas.clicked.connect(gui_preguntas)
 preguntas.botonPreguntasAbiertas.clicked.connect(gui_ventanaPreguntasAbiertas2)
 preguntas.botonPreguntasCerradas.clicked.connect(gui_ventanaPreguntasVF2)
@@ -501,6 +519,13 @@ Menu.botonExamenRecopilado.clicked.connect(gui_examenRecopilado)
 CursoAsignatura1.botonInforme.clicked.connect(gui_informeEstu)
 
 # informeEstu.botonRegresarcurso.clicked.connect(r_informeEstu_CursoAsignatura) #boton regresar
+
+#botones de las preguntas 
+Evaluacion.botonAddA.clicked.connect(gui_ventanaPreguntasAbiertas2)
+ventanaPreguntasAbiertas2.botonAgregarPreguntaAbierta.clicked.connect(agregar_pregunta_abierta)
+ventanaPreguntasVF2.botonAgregarPreguntaVF.clicked.connect(agregar_pregunta_vf)  # Agregar pregunta cerrada
+ventanaPreguntasOM.botonAgregarPreguntaOM.clicked.connect(agregar_pregunta_om)
+
 
 #ejecutable
 principal.show()
