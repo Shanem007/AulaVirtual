@@ -458,7 +458,8 @@ preguntas.botonPreguntasCerradas.clicked.connect(gui_ventanaPreguntasVF2)
 preguntas.botonPreguntasOpcionMultiple.clicked.connect(gui_ventanaPreguntasOM)
 Menu.botonExamenRecopilado.clicked.connect(gui_examenRecopilado)
 CursoAsignatura1.botonInforme.clicked.connect(gui_informeEstu)
-informeEstu.botonRegresar.clicked.connect(r_informeEstu_CursoAsignatura) #boton regresar
+
+# informeEstu.botonRegresarcurso.clicked.connect(r_informeEstu_CursoAsignatura) #boton regresar
 
 #ejecutable
 principal.show()
