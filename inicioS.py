@@ -40,6 +40,7 @@ ventanaPreguntasVF2 = uic.loadUi("ventanaPreguntasVF2.ui")
 ventanaPreguntasOM = uic.loadUi("ventanaPreguntasOM.ui")
 preguntas = uic.loadUi("preguntas.ui")
 examenRecopilado = uic.loadUi("examenRecopilado.ui")
+informeEstu = uic.loadUi("informeEstu.ui")
 
 examenRecopilado =[]
 
@@ -144,6 +145,11 @@ def gui_Menu():
 def gui_CursoAsignatura():
     CursoAsignatura1.show()
     Menu.hide()
+    
+    
+def gui_informeEstu():
+    informeEstu.show()
+    
 
 def gui_bienvenidaEstudiante():
     bienvenidaEstudiante.show()
@@ -197,6 +203,8 @@ def gui_ventanaPreguntasOM():
 
 def gui_examenRecopilado():
     examenRecopilado.show()
+    
+
 
 #codigo para subir y visualizar los archivos 
 
@@ -415,7 +423,7 @@ login_correcto.botonEntendido.clicked.connect(gui_Menu)
 Menu.botonEditar.clicked.connect(gui_CursoAsignatura)
 CursoAsignatura1.botonContenido.clicked.connect(gui_contenido)
 CursoAsignatura1.botonDoc.clicked.connect(gui_Pestañas)
-CursoAsignatura1.botonInforme.clicked.connect(gui_informenotas)
+
 contenido.botonCancelar.clicked.connect(r_guiContenido_guiCursoAsignatura)
 Pestañas.botonOk.clicked.connect(r_Pestañas_CursoAsignatura) #boton regresar
 informenotas.botonRegresarNotas.clicked.connect(r_informenotas_CursoAsignatura) #boton regresar
@@ -448,6 +456,7 @@ preguntas.botonPreguntasAbiertas.clicked.connect(gui_ventanaPreguntasAbiertas2)
 preguntas.botonPreguntasCerradas.clicked.connect(gui_ventanaPreguntasVF2)
 preguntas.botonPreguntasOpcionMultiple.clicked.connect(gui_ventanaPreguntasOM)
 Menu.botonExamenRecopilado.clicked.connect(gui_examenRecopilado)
+CursoAsignatura1.botonInforme.clicked.connect(gui_informeEstu)
 
 #ejecutable
 principal.show()
