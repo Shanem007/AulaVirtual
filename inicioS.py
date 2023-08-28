@@ -558,7 +558,7 @@ def gui_examenRecopilado():
     examenRecopilado.label_5.setText("\n".join([pregunta[0] for pregunta in preguntas_opcion_multiple]))
 
     # Mostrar las preguntas de opción múltiple en el label_5 y las opciones en el comboBoxRespuesta
-    preguntas_y_opciones = [f"{pregunta[0]}: {pregunta[1]}" for pregunta in preguntas_opcion_multiple]
+    preguntas_y_opciones = [pregunta[0] for pregunta in preguntas_opcion_multiple]
     examenRecopilado.label_5.setText("\n".join(preguntas_y_opciones))
 
     examenRecopilado.comboBoxRespuesta.clear()  # Limpiar comboBoxRespuesta antes de agregar nuevas opciones
@@ -568,7 +568,6 @@ def gui_examenRecopilado():
 
     # Mostrar la ventana examenRecopilado
     examenRecopilado.show()
-
 
 def guardar_contenido_en_db():
     titulo = contenido.titulo.toPlainText()
@@ -693,7 +692,7 @@ CursoAsignatura1.botonContenido.clicked.connect(gui_contenido)
 CursoAsignatura1.botonDoc.clicked.connect(gui_Pestañas)
 
 contenido.botonCancelar.clicked.connect(r_guiContenido_guiCursoAsignatura)
-Pestañas.botonOk.clicked.connect(r_Pestañas_CursoAsignatura) #boton regresar
+
 
 CursoAsignatura1.botoRegresarCurso.clicked.connect(gui_Menu)
 Menu.botonRegresarMenu.clicked.connect(r_Menu_login) #boton regresar
