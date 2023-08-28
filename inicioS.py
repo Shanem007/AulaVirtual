@@ -661,18 +661,11 @@ ventanaVisualizacionArchivo.descripcionRelleno.setWordWrap(True)
 ventanaVisualizacionArchivo.descripcionRelleno.setAlignment(Qt.AlignmentFlag.AlignTop)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+def validar_codigo_mate():
+    codigo_ingresado = mtricMate.codigoMate.toPlainText()  # Obtener el texto ingresado en el textEdit
+    
+    if codigo_ingresado == "mate123":
+        ventanaVisualizacionArchivo.show()
 
 
 
@@ -690,10 +683,7 @@ login_correcto.botonEntendido.clicked.connect(gui_Menu)
 Menu.botonEditar.clicked.connect(gui_CursoAsignatura)
 CursoAsignatura1.botonContenido.clicked.connect(gui_contenido)
 CursoAsignatura1.botonDoc.clicked.connect(gui_Pestañas)
-
 contenido.botonCancelar.clicked.connect(r_guiContenido_guiCursoAsignatura)
-
-
 CursoAsignatura1.botoRegresarCurso.clicked.connect(gui_Menu)
 Menu.botonRegresarMenu.clicked.connect(r_Menu_login) #boton regresar
 bienvenidaEstudiante.botonIrCurso.clicked.connect(gui_CursosEst)
@@ -711,16 +701,7 @@ Menu.botonVer.clicked.connect(gui_ventanaVisualizacionArchivo)
 ventanaVisualizacionArchivo.botonAbrirArchivo.clicked.connect(abrir_archivo) #abre los archivos 
 ventanaVisualizacionArchivo.botonEntendidoArchivo.clicked.connect(r_ventanaVisualizacionArchivo_Menu)
 Pestañas.botonRegresarPes.clicked.connect(r_pestañas_CursoAsignatura) #boton regresar
-
-
-
-
 CursoAsignatura1.botonEvaluacion.clicked.connect(gui_preguntas)
-
-
-
-
-
 preguntas.botonPreguntasAbiertas.clicked.connect(gui_ventanaPreguntasAbiertas2)
 preguntas.botonPreguntasCerradas.clicked.connect(gui_ventanaPreguntasVF2)
 preguntas.botonPreguntasOpcionMultiple.clicked.connect(gui_ventanaPreguntasOM)
@@ -728,7 +709,6 @@ Menu.botonExamenRecopilado.clicked.connect(gui_examenRecopilado)
 CursoAsignatura1.botonInforme.clicked.connect(gui_informeEstu)
 informeEstu.botonRegresarcurso.clicked.connect(r_informeEstu_CursoAsignatura) #boton regresar
 examenRecopilado.botonRegresarExamenRecopilado.clicked.connect(r_examenRecopilado_Menu)
-
 #botones de las preguntas 
 ventanaPreguntasAbiertas2.botonAgregarPreguntaAbierta.clicked.connect(agregar_pregunta_abierta)
 ventanaPreguntasVF2.botonAgregarPreguntaVF.clicked.connect(agregar_pregunta_vf)  # Agregar pregunta cerrada
@@ -744,12 +724,13 @@ contenido.botonAddContenido.clicked.connect(gui_mensajeContenidoSubido)
 mensajeContenidoSubido.botonEntendidoContenido.clicked.connect(r_mensajeContenidoSubido_cursoAsignatura1)
 # Conectar la función guardar_enlace_en_db al evento del botón botonGuardarEnlace
 Pestañas.botonGuardarEnlace.clicked.connect(guardar_enlace_en_db)
-
 mensajeEnlaceSubido.botonEntendidoEnlace.clicked.connect(r_mensajeEnlaceSubido)
 ventanaVisualizacionArchivo.cargarEnlaces.clicked.connect(cargar_enlaces_estudiantes)
 ventanaVisualizacionArchivo.cargarEnlaces.clicked.connect(cargarTitulos)
 ventanaVisualizacionArchivo.cargarEnlaces.clicked.connect(cargarDescripcion)
 ventanaVisualizacionArchivo.intentarEvaluacion.clicked.connect(gui_examenRecopilado)
+mtricMate.botonMatricularse.clicked.connect(validar_codigo_mate)
+
 #ejecutable
 principal.show()
 app.exec()
