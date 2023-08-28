@@ -191,27 +191,10 @@ font: 700 18pt &quot;Segoe UI&quot;;</string>
 color: rgb(0, 0, 0);</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="botonOk">
-        <property name="geometry">
-         <rect>
-          <x>220</x>
-          <y>140</y>
-          <width>75</width>
-          <height>24</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">font: 700 9pt &quot;Segoe UI&quot;;
-background-color: rgb(96, 137, 191);</string>
-        </property>
-        <property name="text">
-         <string>Ok </string>
-        </property>
-       </widget>
        <widget class="QPushButton" name="botonRegresarPes">
         <property name="geometry">
          <rect>
-          <x>370</x>
+          <x>300</x>
           <y>140</y>
           <width>75</width>
           <height>24</height>

@@ -555,7 +555,7 @@ def gui_examenRecopilado():
     # Agregar las opciones al comboBoxRespuesta
     for opciones in [pregunta[1].split(',') for pregunta in preguntas_opcion_multiple]:
         examenRecopilado.comboBoxRespuesta.addItems(opciones)
-        
+
     # Mostrar la ventana examenRecopilado
     examenRecopilado.show()
 
@@ -603,7 +603,7 @@ CursoAsignatura1.botonContenido.clicked.connect(gui_contenido)
 CursoAsignatura1.botonDoc.clicked.connect(gui_Pestañas)
 
 contenido.botonCancelar.clicked.connect(r_guiContenido_guiCursoAsignatura)
-Pestañas.botonOk.clicked.connect(r_Pestañas_CursoAsignatura) #boton regresar
+
 
 CursoAsignatura1.botoRegresarCurso.clicked.connect(gui_Menu)
 Menu.botonRegresarMenu.clicked.connect(r_Menu_login) #boton regresar
