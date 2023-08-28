@@ -749,7 +749,7 @@ mensajeEnlaceSubido.botonEntendidoEnlace.clicked.connect(r_mensajeEnlaceSubido)
 ventanaVisualizacionArchivo.cargarEnlaces.clicked.connect(cargar_enlaces_estudiantes)
 ventanaVisualizacionArchivo.cargarEnlaces.clicked.connect(cargarTitulos)
 ventanaVisualizacionArchivo.cargarEnlaces.clicked.connect(cargarDescripcion)
-
+ventanaVisualizacionArchivo.intentarEvaluacion.clicked.connect(gui_examenRecopilado)
 #ejecutable
 principal.show()
 app.exec()

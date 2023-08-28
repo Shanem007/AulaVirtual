@@ -244,7 +244,7 @@ background-color: rgb(255, 184, 61);</string>
    </property>
    <property name="styleSheet">
     <string notr="true">color: rgb(242, 144, 87);
-font: 700 18pt &quot;Segoe UI&quot;;
+font: 700 10pt &quot;Segoe UI&quot;;
 color: rgb(0, 0, 0);
 
 background-color: rgb(255, 255, 255);
