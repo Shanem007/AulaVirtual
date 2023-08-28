@@ -56,8 +56,8 @@ background-color: rgb(255, 255, 255);
   <widget class="QPushButton" name="botonEntendidoArchivo">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>520</y>
+     <x>200</x>
+     <y>510</y>
      <width>211</width>
      <height>41</height>
     </rect>
@@ -68,7 +68,7 @@ font: 700 12pt &quot;Segoe UI&quot;;
 color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
-    <string>Todo listo</string>
+    <string>Regresar</string>
    </property>
   </widget>
   <widget class="QComboBox" name="comboBoxArchivos">
@@ -119,7 +119,7 @@ background-color: rgb(255, 255, 255);
 </string>
    </property>
    <property name="text">
-    <string>Título:</string>
+    <string>Tema:</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
@@ -208,8 +208,11 @@ background-color: rgb(255, 255, 255);
      <x>570</x>
      <y>341</y>
      <width>221</width>
-     <height>161</height>
+     <height>141</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 230, 89);</string>
    </property>
   </widget>
   <widget class="QPushButton" name="intentarEvaluacion">
@@ -230,25 +233,6 @@ background-color: rgb(255, 184, 61);</string>
     <string>Intentar evaluación</string>
    </property>
   </widget>
-  <widget class="QLabel" name="tituloRelleno">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>80</y>
-     <width>361</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">color: rgb(255, 255, 255);
-font: 700 18pt &quot;Segoe UI&quot;;
-background-color: rgb(255, 255, 255);
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QLabel" name="descripcionRelleno">
    <property name="geometry">
     <rect>
@@ -261,12 +245,44 @@ background-color: rgb(255, 255, 255);
    <property name="styleSheet">
     <string notr="true">color: rgb(242, 144, 87);
 font: 700 18pt &quot;Segoe UI&quot;;
+color: rgb(0, 0, 0);
 
 background-color: rgb(255, 255, 255);
 </string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cargarEnlaces">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>510</y>
+     <width>211</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 700 12pt &quot;Segoe UI&quot;;
+color: rgb(255, 255, 255);
+background-color: rgb(85, 85, 255);</string>
+   </property>
+   <property name="text">
+    <string>Actualizar</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="tituloRelleno">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>90</y>
+     <width>221</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 222, 101);</string>
    </property>
   </widget>
  </widget>
