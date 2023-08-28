@@ -28,9 +28,6 @@ mtricLengua = uic.loadUi("mtricLengua.ui")
 mtricHisto = uic.loadUi("mtricHisto.ui")
 mensajeArchivo =uic.loadUi("mensajeArchivo.ui")
 ventanaVisualizacionArchivo = uic.loadUi("ventanaVisualizacionArchivo.ui")
-Evaluacion = uic.loadUi("Evaluacion.ui")
-ventanaPreguntasAbiertas = uic.loadUi("ventanaPreguntasAbiertas.ui")
-ventanaPreguntasVF = uic.loadUi("ventanaPreguntasVF.ui")
 contenidoCargado = uic.loadUi("contenidoCargado.ui")
 ventanaPreguntasAbiertas2 = uic.loadUi("ventanaPreguntasAbiertas2.ui")
 ventanaPreguntasVF2 = uic.loadUi("ventanaPreguntasVF2.ui")
@@ -167,20 +164,8 @@ def gui_mtricLengua():
 def gui_mtricHisto():
     mtricHisto.show()
 
-def gui_Evaluacion():
-    Evaluacion.show()
-
-def gui_ventanaPreguntasAbiertas():
-    ventanaPreguntasAbiertas.show()
-
-def gui_ventanaPreguntasVF():
-    ventanaPreguntasVF.show()
-
-def gui_contenidoCargado():
-    contenidoCargado.show()
-
 def gui_preguntas():
-    preguntas.show()
+   preguntas.show()
 
 def gui_ventanaPreguntasAbiertas2():
     ventanaPreguntasAbiertas2.show()
@@ -459,15 +444,6 @@ def r_mensajeArchivo_Pestañas():
 def r_ventanaVisualizacionArchivo_Menu():
     ventanaVisualizacionArchivo.hide()
 
-def r_Evaluacion_CursoAsignatura():
-    Evaluacion.hide()
-
-def r_ventanaPreguntasAbiertas_Evaluacion():
-    ventanaPreguntasAbiertas.hide()
-    
-def r_ventanaPreguntasVF_Evaluacion():
-    ventanaPreguntasVF.hide()
-
 def r_pestañas_CursoAsignatura():
     Pestañas.hide()
 
@@ -475,8 +451,8 @@ def r_examenRecopilado_Menu():
     Menu.show()
     examenRecopilado.hide()
 
-def r_preguntas_Menu():
-    Menu.show()
+def r_preguntas_CursoAsignatura():
+    CursoAsignatura1.show()
     preguntas.hide()
 
 def r_mensajeContenidoSubido_cursoAsignatura1():
@@ -646,15 +622,17 @@ mensajeArchivo.botonEntendidoArchivo.clicked.connect(r_mensajeArchivo_Pestañas)
 Menu.botonVer.clicked.connect(gui_ventanaVisualizacionArchivo)
 ventanaVisualizacionArchivo.botonAbrirArchivo.clicked.connect(abrir_archivo) #abre los archivos 
 ventanaVisualizacionArchivo.botonEntendidoArchivo.clicked.connect(r_ventanaVisualizacionArchivo_Menu)
-CursoAsignatura1.botonEvaluacion.clicked.connect(gui_Evaluacion)
-Evaluacion.botonAddVF.clicked.connect(gui_ventanaPreguntasVF)
-Evaluacion.botonAddA.clicked.connect(gui_ventanaPreguntasAbiertas)
-Evaluacion.botonRegresarEval.clicked.connect(r_Evaluacion_CursoAsignatura)
-ventanaPreguntasVF.botonRegresarVF.clicked.connect(r_ventanaPreguntasVF_Evaluacion) #boton regresar
-ventanaPreguntasAbiertas.botonRegresarA.clicked.connect(r_ventanaPreguntasAbiertas_Evaluacion) #boton regresar
-Menu.botoncontenidoCargado.clicked.connect(gui_contenidoCargado)
 Pestañas.botonRegresarPes.clicked.connect(r_pestañas_CursoAsignatura) #boton regresar
-Menu.botonPreguntas.clicked.connect(gui_preguntas)
+
+
+
+
+CursoAsignatura1.botonEvaluacion.clicked.connect(gui_preguntas)
+
+
+
+
+
 preguntas.botonPreguntasAbiertas.clicked.connect(gui_ventanaPreguntasAbiertas2)
 preguntas.botonPreguntasCerradas.clicked.connect(gui_ventanaPreguntasVF2)
 preguntas.botonPreguntasOpcionMultiple.clicked.connect(gui_ventanaPreguntasOM)
@@ -664,11 +642,10 @@ informeEstu.botonRegresarcurso.clicked.connect(r_informeEstu_CursoAsignatura) #b
 examenRecopilado.botonRegresarExamenRecopilado.clicked.connect(r_examenRecopilado_Menu)
 
 #botones de las preguntas 
-Evaluacion.botonAddA.clicked.connect(gui_ventanaPreguntasAbiertas2)
 ventanaPreguntasAbiertas2.botonAgregarPreguntaAbierta.clicked.connect(agregar_pregunta_abierta)
 ventanaPreguntasVF2.botonAgregarPreguntaVF.clicked.connect(agregar_pregunta_vf)  # Agregar pregunta cerrada
 ventanaPreguntasOM.botonAgregarPreguntaOM.clicked.connect(agregar_pregunta_om)
-preguntas.botonRegresarPreguntas.clicked.connect(r_preguntas_Menu)
+preguntas.botonRegresarPreguntas.clicked.connect(r_preguntas_CursoAsignatura)
 #Botones administracion de estudiantes 
 # Agrega un botón o un evento que llame a la función cargar_informe_estudiantes
 informeEstu.verLista.clicked.connect(cargar_informe_estudiantes)

@@ -99,7 +99,7 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
 font: 700 14pt &quot;Segoe UI&quot;;</string>
     </property>
     <property name="text">
-     <string>Evaluaciones</string>
+     <string>Crear evaluación</string>
     </property>
    </widget>
    <widget class="QPushButton" name="botonInforme">

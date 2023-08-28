@@ -126,12 +126,20 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>430</y>
+      <y>450</y>
       <width>151</width>
       <height>61</height>
      </rect>
     </property>
    </widget>
+   <zorder>comboBoxRespuesta</zorder>
+   <zorder>label</zorder>
+   <zorder>label_2</zorder>
+   <zorder>botonAgregarPreguntaOM</zorder>
+   <zorder>textEditPreguntaOM</zorder>
+   <zorder>label_3</zorder>
+   <zorder>label_4</zorder>
+   <zorder>textEditOpciones</zorder>
   </widget>
  </widget>
  <resources/>
