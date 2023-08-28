@@ -2,9 +2,12 @@
 from PyQt6 import QtWidgets, uic 
 import sqlite3
 from PyQt6.QtWidgets import QFileDialog  #libreria para subir archivos 
-from PyQt6.QtCore import QUrl    #libreria para ver archivos
+from PyQt6.QtCore import QUrl, Qt   #libreria para ver archivos
 from PyQt6.QtGui import QDesktopServices #libreria para ver archivos
-
+from PyQt6.QtGui import QStandardItem, QStandardItemModel
+from PyQt6.QtWidgets import QTableWidgetItem # Importa el módulo relacionado con los widgets y la base de datos de PyQt6
+import os
+import shutil
 
 
 #inicar la aplicación
@@ -189,8 +192,7 @@ def gui_mesajeEnlaceSubido():
 
 # Administración de estudiantes
 
-# Importa el módulo relacionado con los widgets y la base de datos de PyQt6
-from PyQt6.QtWidgets import QTableWidgetItem
+
 
 def cargar_informe_estudiantes():
     # Conexión a la base de datos
@@ -342,6 +344,9 @@ def abrir_archivo():
 
     conexion.close()
 #funcion para subir archivos 
+
+carpeta_destino = "files"
+
 def cargar_archivo():
     archivo, _ = QFileDialog.getOpenFileName(None, "Seleccionar archivo", "", "Archivos de texto (*.txt);;Documentos de Word (*.docx);;Archivos PDF (*.pdf);;Todos los archivos (*)")
 
@@ -349,10 +354,15 @@ def cargar_archivo():
         # Obtener solo el nombre del archivo de la ruta completa
         nombre_archivo = archivo.split("/")[-1]
 
-        # Guardar la información del archivo en la base de datos
+        # Copiar el archivo a la carpeta de destino
+        ruta_destino = os.path.join(carpeta_destino, nombre_archivo)
+        shutil.copy(archivo, ruta_destino)
+
+        # Guardar la nueva ruta en la base de datos
+        nueva_ruta = ruta_destino  # Usar la ruta de destino como la nueva ubicación
         conexion = sqlite3.connect("database.db")
         cursor = conexion.cursor()
-        cursor.execute("INSERT INTO archivos (nombre_archivo, ruta_archivo, tipo_archivo) VALUES (?, ?, ?)", (nombre_archivo, archivo, "Tipo del archivo"))
+        cursor.execute("INSERT INTO archivos (nombre_archivo, ruta_archivo, tipo_archivo) VALUES (?, ?, ?)", (nombre_archivo, nueva_ruta, "Tipo del archivo"))
 
         conexion.commit()
         conexion.close()
@@ -574,13 +584,87 @@ def guardar_contenido_en_db():
     conexion.commit()
     conexion.close()
 
-def validar_codigo_mate():
-    codigo_ingresado = mtricMate.codigoMate.toPlainText()  # Obtener el texto ingresado en el textEdit
-    
-    if codigo_ingresado == "mate123": 
-        ventanaVisualizacionArchivo.show()
+#Cargar enlaces en pantalla estudiantes
+def cargar_enlaces_estudiantes():
+    # Conexión a la base de datos
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
 
-mtricMate.botonMatricularse.clicked.connect(validar_codigo_mate)
+    # Consulta a la base de datos para obtener los datos
+    cursor.execute("SELECT enlace FROM enlace")
+    data = cursor.fetchall()
+
+    # Cerrar la conexión
+    conexion.close()
+
+    # Crear un modelo de datos
+    model = QStandardItemModel()
+
+    # Cargar los datos en el modelo
+    for row_data in data:
+        item = QStandardItem(str(row_data[0]))  # Crea un item con el texto del enlace
+        model.appendRow(item)
+
+    # Asignar el modelo al QListView
+    ventanaVisualizacionArchivo.listaEnlaces.setModel(model)
+
+#Cargar contenido en la pantalla de estudiantes
+
+def cargarTitulos():
+    # Operaciones para cargar los títulos en la lista del combobox
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
+
+    # Consulta a la base de datos para obtener los datos
+    cursor.execute("SELECT titulo FROM contenido")
+    data = cursor.fetchall()
+
+    # Cerrar la conexión
+    conexion.close()
+
+    # Crear un modelo de datos
+    model = QStandardItemModel()
+
+    # Cargar los datos en el modelo
+    for row_data in data:
+        item = QStandardItem(str(row_data[0]))
+        model.appendRow(item)
+
+    # Asignar el modelo al QListView
+    ventanaVisualizacionArchivo.tituloRelleno.setModel(model)
+
+
+#Cargar descripción en la pantalla de estudiantes en base al título seleccionado
+def cargarDescripcion():
+    # Obtener el título seleccionado
+    titulo_seleccionado = ventanaVisualizacionArchivo.tituloRelleno.currentText()
+
+    # Conexión a la base de datos
+    conexion = sqlite3.connect("database.db")
+    cursor = conexion.cursor()
+
+    # Consulta a la base de datos para obtener la descripción del contenido
+    cursor.execute("SELECT descripcion FROM contenido WHERE titulo = ?", (titulo_seleccionado,))
+    resultado = cursor.fetchone()
+    
+    if resultado:
+        descripcion = resultado[0]
+        ventanaVisualizacionArchivo.descripcionRelleno.setText(descripcion)  # Asignar la descripción al widget QTextEdit
+
+    conexion.close()
+
+# Conectar la función cargarDescripcion al evento de cambio de selección del QComboBox
+ventanaVisualizacionArchivo.tituloRelleno.currentIndexChanged.connect(cargarDescripcion)
+
+# Permitir que el texto del Qlabel tenga una barra de desplazamiento vertical y que el texto se acomode hacia abajo
+ventanaVisualizacionArchivo.descripcionRelleno.setWordWrap(True)
+ventanaVisualizacionArchivo.descripcionRelleno.setAlignment(Qt.AlignmentFlag.AlignTop)
+
+
+
+
+
+
 
 
 
@@ -662,8 +746,10 @@ mensajeContenidoSubido.botonEntendidoContenido.clicked.connect(r_mensajeContenid
 Pestañas.botonGuardarEnlace.clicked.connect(guardar_enlace_en_db)
 
 mensajeEnlaceSubido.botonEntendidoEnlace.clicked.connect(r_mensajeEnlaceSubido)
-
-
+ventanaVisualizacionArchivo.cargarEnlaces.clicked.connect(cargar_enlaces_estudiantes)
+ventanaVisualizacionArchivo.cargarEnlaces.clicked.connect(cargarTitulos)
+ventanaVisualizacionArchivo.cargarEnlaces.clicked.connect(cargarDescripcion)
+ventanaVisualizacionArchivo.intentarEvaluacion.clicked.connect(gui_examenRecopilado)
 #ejecutable
 principal.show()
 app.exec()
