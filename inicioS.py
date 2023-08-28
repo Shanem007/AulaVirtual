@@ -548,17 +548,16 @@ def gui_examenRecopilado():
     examenRecopilado.label_5.setText("\n".join([pregunta[0] for pregunta in preguntas_opcion_multiple]))
 
     # Mostrar las preguntas de opción múltiple en el label_5 y las opciones en el comboBoxRespuesta
-    preguntas_y_opciones = [f"{pregunta[0]}: {pregunta[1]}" for pregunta in preguntas_opcion_multiple]
+    preguntas_y_opciones = [pregunta[0] for pregunta in preguntas_opcion_multiple]
     examenRecopilado.label_5.setText("\n".join(preguntas_y_opciones))
 
     examenRecopilado.comboBoxRespuesta.clear()  # Limpiar comboBoxRespuesta antes de agregar nuevas opciones
     # Agregar las opciones al comboBoxRespuesta
     for opciones in [pregunta[1].split(',') for pregunta in preguntas_opcion_multiple]:
         examenRecopilado.comboBoxRespuesta.addItems(opciones)
-
+        
     # Mostrar la ventana examenRecopilado
     examenRecopilado.show()
-
 
 def guardar_contenido_en_db():
     titulo = contenido.titulo.toPlainText()
