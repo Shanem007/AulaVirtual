@@ -574,8 +574,13 @@ def guardar_contenido_en_db():
     conexion.commit()
     conexion.close()
 
+def validar_codigo_mate():
+    codigo_ingresado = mtricMate.codigoMate.toPlainText()  # Obtener el texto ingresado en el textEdit
+    
+    if codigo_ingresado == "mate123": 
+        ventanaVisualizacionArchivo.show()
 
-
+mtricMate.botonMatricularse.clicked.connect(validar_codigo_mate)
 
 
 

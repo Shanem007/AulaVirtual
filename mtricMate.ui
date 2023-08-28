@@ -69,7 +69,7 @@ font: 700 12pt &quot;Segoe UI&quot;;</string>
     <string>Ingrese su clave de matriculación:</string>
    </property>
   </widget>
-  <widget class="QTextEdit" name="textEdit">
+  <widget class="QTextEdit" name="codigoMate">
    <property name="geometry">
     <rect>
      <x>110</x>
@@ -99,7 +99,7 @@ font: 700 10pt &quot;Segoe UI&quot;;</string>
     <string>Cancelar</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="botonMatricularse">
    <property name="geometry">
     <rect>
      <x>280</x>
